@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Book: {{book.title}}</h1>
+
+<h2> Discussion date: {{book.due_date}} </h2>
+<h2>Proposed by: {{book.author.nickname}}</h2>
+{% if book.info is not none %}
+<p>
+{{book.info }}
+</p>
+{% endif %}
+{% if book.author.id == g.user.id %}<p> 
+<a href='/book/{{book.title}}/edit'>Edit info</a>
+|<a href='/book/{{book.title}}/delete' onclick="return confirm('Are you sure you want to delete?')"> Delete book</a>
+</p>{% endif %}
+<hr>
+{% for review in reviews %}
+<p>
+{{review.author.nickname}} gives {{review.star}}/5<br>
+{% if review.text is not none %}
+<blockquote>{{review.text}}<br>
+{% if review.author.nickname == g.user.nickname %}
+<a href='/book/{{book.title}}/review/edit'>Edit review</a>
+| <a href='/book/{{book.title}}/review/delete' onclick="return confirm('Are you sure you want to delete your review?')">Delete review</a>
+{% endif %}
+</blockquote>
+{% endif %}
+</p>
+{% endfor %}
+<p> <a href='/book/{{book.title}}/review'>Leave review</a></p>
+<p> <a href="{{url_for('notify_all', title=book.title)}}" onclick="return confirm('Are you sure you want to notify everyone?')">Notify all users of discussion date</a></p>
+{% endblock %}

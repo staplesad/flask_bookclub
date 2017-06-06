@@ -1,0 +1,9 @@
+Hey!
+
+{{book.author.nickname}} has added a new book to the bookclub app.
+The book is {{book.title}}.
+Click here to visit the bookclub page:
+{{url_for('book', title=book.title, _external=True)}}
+
+TTYL :)
+ 

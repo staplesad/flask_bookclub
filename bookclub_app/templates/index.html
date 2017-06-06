@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> Hello, {{user.nickname}}!</h1>
+<table>
+  {% for  book in books %}
+  <tr>
+    <td>{{book.due_date}}</td>
+    <td><a href='/book/{{book.title}}'>{{book.title}}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

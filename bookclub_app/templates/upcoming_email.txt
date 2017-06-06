@@ -1,0 +1,5 @@
+Hi,
+
+Just a reminder that the discussion date for {{book.title}} is {{book.due_date}}.
+
+TTYL
