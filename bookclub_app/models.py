@@ -53,7 +53,7 @@ class Book(db.Model):
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     star = db.Column(db.Integer)
-    text = db.Column(db.String(140))
+    text = db.Column(db.String(550))
     book_id = db.Column(db.Integer, db.ForeignKey('book.id'), index=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
