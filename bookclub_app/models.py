@@ -41,9 +41,9 @@ class User(db.Model):
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(140), index=True, unique=True)
+    title = db.Column(db.String(255), index=True, unique=True)
     due_date = db.Column(db.Date)
-    info = db.Column(db.String(200))
+    info = db.Column(db.String(2000))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     reviews = db.relationship('Review', backref='book', lazy='dynamic')
 
