@@ -2,13 +2,19 @@
 
 {% block content %}
 
-<h1> Add/Edit a new book...</h1>
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-12">
+			<h1> Add/Edit a Book...</h1>
+		</div> 
+	</div>
+</div>	
 <div class="container">
 	<div class="row"> 
 		<div class="col-md-8">
 			<form action="" method="post" name="post">
 			  {{ form.hidden_tag() }}
-			  <p> Book Title:<br>
+			  <p>Book Title:<br>
 			  {{form.title(size=80)}}<br>
 			  {% for error in form.title.errors %}
 			  <span style='color: red;'>[{{error}}]</span>
@@ -18,7 +24,7 @@
 			  {{form.due_date }}<br>
 			  </p>
 			  <p>Further Info:<br>
-			  {{form.info (cols=80, rows=10)}}<br>
+			  {{form.info (cols=80, rows=5)}}<br>
 			  </p>
 			  <p>Notify other users? {{form.notify}}<br></p>
 			  <p><input type='submit' value='Add Book' class='formbutton'></p>
@@ -27,8 +33,7 @@
 		<div class="col-md-4">
 		    <br>
 			<br> 
-			<br>
-			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  It was a bright cold day in April, and the clocks were striking thirteen.  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  ′Classic′ - a book which people praise and don't read. ― Mark Twain  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
 			<br>
 			<br>
 			<br>
