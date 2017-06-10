@@ -1,23 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="" method="post" name="post">
-  {{ form.hidden_tag() }}
-  <p> Book Title:<br>
-  {{form.title(size=80)}}<br>
-  {% for error in form.title.errors %}
-  <span style='color: red;'>[{{error}}]</span>
-  {% endfor %}<br>
-  </p>
-  <p>Discussion date:<br>
-  (Format dd/mm/YYYY)<br>
-  {{form.due_date }}<br>
-  </p>
-  <p>Further Info:<br>
-  {{form.info (cols=80, rows=10)}}<br>
-  </p>
-  <p>Notify other users? {{form.notify}}<br></p>
-  <p><input type='submit' value='Add book'></p>
-</form>
+
+<h1> Add/Edit a new book...</h1>
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-8">
+			<form action="" method="post" name="post">
+			  {{ form.hidden_tag() }}
+			  <p> Book Title:<br>
+			  {{form.title(size=80)}}<br>
+			  {% for error in form.title.errors %}
+			  <span style='color: red;'>[{{error}}]</span>
+			  {% endfor %}</p>
+			  <p>Discussion Date:<br>
+			  (Format DD/MM/YYYY)<br>
+			  {{form.due_date }}<br>
+			  </p>
+			  <p>Further Info:<br>
+			  {{form.info (cols=80, rows=10)}}<br>
+			  </p>
+			  <p>Notify other users? {{form.notify}}<br></p>
+			  <p><input type='submit' value='Add Book' class='formbutton'></p>
+			</form>
+		</div>
+		<div class="col-md-4">
+		    <br>
+			<br> 
+			<br>
+			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  It was a bright cold day in April, and the clocks were striking thirteen.  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+			<br>
+			<br>
+			<br>
+			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  Life appears to me too short to be spent in nursing animosity or registering wrongs.  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+		</div>
+	</div>
+</div>	
 
 {% endblock %}
