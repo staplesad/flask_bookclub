@@ -1,18 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> Book: {{book.title}}</h1>
 
-<h2> Discussion date: {{book.due_date}} </h2>
-<h2>Proposed by: {{book.author.nickname}}</h2>
+<h1>{{book.title}}</h1>
+<br>
+<table>
+<tr>
+<td><i class="fa fa-book" aria-hidden="true"></i> Book Title:</td> <td>{{book.title}}</td>
+</tr>
+<tr>
+<td><i class="fa fa-calendar" aria-hidden="true"></i>  Discussion Date:</td> <td>{{book.due_date}}</td>
+</tr>
+<tr>
+<td><i class="fa fa-user" aria-hidden="true"></i>  Proposed By:</td> <td>{{book.author.nickname}}</td>
+</tr>
 {% if book.info is not none %}
-<p>
-{{book.info }}
-</p>
+<tr>
+<td colspan="2">
+{{book.info }}</td>
+</tr>
+</table>
+<br>
+<br>
 {% endif %}
 {% if book.author.id == g.user.id %}<p> 
-<a href='/book/{{book.title}}/edit'>Edit info</a>
-|<a href='/book/{{book.title}}/delete' onclick="return confirm('Are you sure you want to delete?')"> Delete book</a>
+<a href='/book/{{book.title}}/edit'class='button1'>Edit Info</a>
+<a href='/book/{{book.title}}/delete' onclick="return confirm('Are you sure you want to delete?')" class='button1'>Delete Book</a>
 </p>{% endif %}
 <hr>
 {% for review in reviews %}
@@ -21,13 +34,15 @@
 {% if review.text is not none %}
 <blockquote>{{review.text}}<br>
 {% if review.author.nickname == g.user.nickname %}
-<a href='/book/{{book.title}}/review/edit'>Edit review</a>
-| <a href='/book/{{book.title}}/review/delete' onclick="return confirm('Are you sure you want to delete your review?')">Delete review</a>
+<br>
+<a href='/book/{{book.title}}/review/edit'class='button1'>Edit Review</a>
+<a href='/book/{{book.title}}/review/delete' onclick="return confirm('Are you sure you want to delete your review?')"class='button1'>Delete Review</a>
 {% endif %}
 </blockquote>
 {% endif %}
 </p>
 {% endfor %}
-<p> <a href='/book/{{book.title}}/review'>Leave review</a></p>
-<p> <a href="{{url_for('notify_all', title=book.title)}}" onclick="return confirm('Are you sure you want to notify everyone?')">Notify all users of discussion date</a></p>
+<p> <a href='/book/{{book.title}}/review' class='button2'>Leave Book Review</a></p>
+<br>
+<p> <a href="{{url_for('notify_all', title=book.title)}}" onclick="return confirm('Are you sure you want to notify everyone?')" class='button1'>Notify all users of discussion date</a></p>
 {% endblock %}
