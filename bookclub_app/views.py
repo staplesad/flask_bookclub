@@ -60,7 +60,7 @@ def book(title):
         flash('Book %s not found.' % title)
         return redirect(url_for('index'))
     reviews = Review.query.filter_by(book=book).all()
-    return render_template('book.html', book=book, reviews=reviews)
+    return render_template('book.html', title=title, book=book, reviews=reviews)
 
 @app.route('/book/<title>/delete', methods=['GET','POST'])
 @login_required
