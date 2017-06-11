@@ -153,7 +153,7 @@ def new_review(title):
         db.session.commit()
         flash('Review has been saved.')
         return redirect(url_for('book', title=title))
-    return render_template('new_review.html', title='New Review', form=form)
+    return render_template('new_review.html', title='New Review for %s' %title, form=form)
 
 @app.route('/book/<title>/review/edit', methods=['GET','POST'])
 @login_required
@@ -178,7 +178,7 @@ def edit_review(title):
     else:
         form.star.data=review.star
         form.text.data=review.text
-    return render_template('new_review.html', title='Edit Review', form=form)
+    return render_template('new_review.html', title='Edit Review for %s' % title, form=form)
 
 @app.route('/book/<title>/review/delete', methods=['GET','POST'])
 @login_required
