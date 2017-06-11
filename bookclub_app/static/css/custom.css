@@ -28,12 +28,12 @@ section {
 }
 
 .navbar-inverse .navbar-toggle {
-    border-color: #9d9d9d;
+    border-color: lavender;
     border-width: 1px;
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
-    background-color: #9d9d9d;
+    background-color: lavender;
 }
 
 .navbar-toggle .icon-bar {
@@ -42,17 +42,19 @@ section {
 }
 
 .navbar-toggle {
-    padding: 16px 28px;
+    padding: 16px 26px;
     margin-top: 5px;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
     border-radius: 8px;
 }
 
+
+
 input[type="submit"] {
-    width: 22%;
+    width: 33%;
     background-color: #333333;
     border-style: none;
-    padding: 10px;
+    padding: 8px;
 	font-size: 18px;
 	color: lavender;
 }
@@ -64,33 +66,32 @@ input.formbutton {
 }
 
 .button1  {
-    width: 22%;
     background-color: lavender; 
-    border-style: none;
     padding: 6px;
-	font-size: 18px;
+	font-size: 16px;
 	color: #333;
+	border-style: solid;
+    border-width: thin;
+	border-color: grey;
 }
 
-.button2  {
-	width: 28%; 
-	font-size: 22px; 
-	background-color: #c5c5d2;
-    border-style: none;
-    padding: 7px;
+.button2  { 
+	font-size: 18px; 
+	background-color: #333;
+    padding: 14px 38px 14px 38px;
 	margin: 2px;
-	color: #333;
+	color: lavender;
 }	
 	
-a.button1:hover {
+a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 	text-decoration: none;
 	background-color:  #c5c5d2;
+	border-style: solid;
+    border-width: thin;
+	border-color: grey;
+	color: #337ab7;
 }
 	
-a.button2:hover  {
-	text-decoration: none;
-	background-color:  lavender;
-}
 
 /* Navigation & Branding */
 
@@ -99,17 +100,25 @@ a.button2:hover  {
 }   
 
 	.nav>li>a {
-    padding: 20px 50px;
+    padding: 20px 42px;
 	font-size: 18px;
  }	
 
+ .navbar-inverse .navbar-nav>li>a {
+    color: lavender;
+}
+
  .navbar-static-top {
-    padding: 6px 0 6px;
+    padding: 6px 0 6px 6px;
 }
 
 a.navbar-brand {
 	font-size: 28px;
 	font-family: 'Indie Flower', cursive;
+}
+
+.navbar-inverse .navbar-brand {
+    color: lavender;
 }
 
 @media screen and (min-width: 768px) {
@@ -167,11 +176,23 @@ input#title, textarea#info, input#due_date {
 }
 
 @media screen and (max-width: 768px) {
-	input#title, textarea#info, input#due_date, textarea#text, input[type="submit"]{
+	input#title, textarea#info, input#due_date, textarea#text, input[type="submit"] {
 		width: 100%;
-	} 
+		}
 }
 
+@media screen and (max-width: 992px) {	
+.col-md-4#leavebook { 
+	display: none;
+ }		
+}
+
+
+
+
+td:empty {
+ display: none;
+}
 
 /*Footer*/
 
@@ -195,7 +216,7 @@ input#username, input#password {
 }
 
 @media screen and (min-width: 768px) {
-	.row #signin {
+	.row#login {
     margin-left: 25%;
 }
 input#username, input#password {

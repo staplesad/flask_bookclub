@@ -4,13 +4,15 @@
 
 <div class="container">
 	<div class="row"> 
-		<div class="col-md-12">
+		<div class="col-md-8">
 			<h1>{{book.title}}</h1>
-			<br>
+		</div>
+		<div class="col-md-4" id='leavebook'>
+		<p><a href='/book/{{book.title}}/review' style='float: right;' class='button2'>Leave Book Review</a></p>
 		</div>
 	</div>
 </div>	
-
+<br>
 <div class="container">
 	<div class="row"> 
 		<div class="col-md-12">
@@ -26,8 +28,7 @@
 			</tr>
 			{% if book.info is not none %}
 			<tr>
-			<td colspan="2">
-			{{book.info }}</td>
+			<td colspan="2">{{book.info}}</td>
 			</tr>
 			</table>
 			<br>
@@ -68,7 +69,7 @@
 			<p> <a href='/book/{{book.title}}/review' class='button2'>Leave Book Review</a></p>
 			<br>
 			<br>
-			<p> <a href="{{url_for('notify_all', title=book.title)}}" onclick="return confirm('Are you sure you want to notify everyone?')" class='button1'>Notify all users of discussion date</a></p>
+			<p> <a href="{{url_for('notify_all', title=book.title)}}" onclick="return confirm('Are you sure you want to notify everyone?')" class='button1'>Notify All Users of Discussion Date</a></p>
 		    <br> 
 		</div>
 	</div>
