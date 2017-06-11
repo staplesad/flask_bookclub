@@ -31,7 +31,7 @@ def login():
         session['remember_me'] = form.remember_me.data
         user = User.query.filter_by(nickname=form.username.data).first()
         if user is None:
-            flash('No user of this name found.')
+            flash('Login details are incorrect.')
         else:
             if check_password(user.hashed_password, form.password.data):
                 if 'remember_me' in session:
@@ -39,6 +39,8 @@ def login():
                     session.pop('remember_me', None)
                 login_user(user, remember = remember_me)
                 return redirect(request.args.get('next') or url_for('index'))
+            else:
+                flash('Login details are incorrect.')
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
