@@ -1,16 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="" method="post" name="review">
-  {{form.hidden_tag()}}
-  <p> {{g.user.nickname}} gives: {{form.star}}/5<br>
-  {% for error in form.star.errors %}
-  <span style='color: red;'>[{{error}}]</span>
-  {% endfor %}<br>
-  </p>
-  <p> and says:<br>
-  {{form.text (cols=80, rows=10)}}
-  </p>
-  <p><input type="submit" value="Add review"></p>
-</form>
+
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-12">
+			<h1> Leave/Edit a Review...</h1>
+		</div>
+	</div>
+</div>	
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-6">
+			<form action="" method="post" name="review">
+			  {{form.hidden_tag()}}
+			  <p> {{g.user.nickname}} gives {{form.star}}/5<br>
+			  {% for error in form.star.errors %}
+			  <span style='color: red;'>[{{error}}]</span>
+			  {% endfor %}<br>
+			  </p>
+			  <p> and says:<br>
+			  {{form.text (cols=80, rows=5)}}
+			  </p>
+			  <p><input type="submit" value="Add Review"></p>
+			</form>
+		</div>
+		<div class="col-md-6">
+		    <br>
+			<br> 
+			<br>
+			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  So many books, so little time. - Frank Zappa <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+			<br>
+			<br>
+			<br>
+			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid. - Jane Austen  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+		</div>
+	</div>
+</div>	
 {% endblock %}

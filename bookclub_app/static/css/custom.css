@@ -7,11 +7,15 @@ body {
 }
 
 p {
-	font-size: 17px;
+	font-size: 16px;
+}
+
+h1 {
+    font-size: 25px;
 }
 
 .quote {
-	font-family: 'Indie Flower', cursive;
+	font-family:  'Indie Flower', cursive;
 	} 
 
 html {
@@ -23,14 +27,34 @@ section {
 	margin: 2%;
 }
 
+.navbar-inverse .navbar-toggle {
+    border-color: #9d9d9d;
+    border-width: 1px;
+}
 
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #9d9d9d;
+}
+
+.navbar-toggle .icon-bar {
+    width: 25px;
+    height: 2px;
+}
+
+.navbar-toggle {
+    padding: 16px 28px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    border-radius: 8px;
+}
 
 input[type="submit"] {
     width: 22%;
-    background-color: lavender;
+    background-color: #333333;
     border-style: none;
     padding: 10px;
 	font-size: 18px;
+	color: lavender;
 }
 
 @media screen and (max-width: 768px) {
@@ -55,6 +79,7 @@ input.formbutton {
     border-style: none;
     padding: 7px;
 	margin: 2px;
+	color: #333;
 }	
 	
 a.button1:hover {
@@ -66,10 +91,6 @@ a.button2:hover  {
 	text-decoration: none;
 	background-color:  lavender;
 }
-	
-h1 {
-	font-family: 'Indie Flower', cursive;
-}
 
 /* Navigation & Branding */
 
@@ -78,23 +99,16 @@ h1 {
 }   
 
 	.nav>li>a {
-    padding: 20px 28px;
-	font-size: 20px;
+    padding: 20px 50px;
+	font-size: 18px;
  }	
 
-@media screen and (max-width: 992px) {
-	.nav>li>a {
-    padding: 20px 25px;
-	font-size: 18px;
- }
-}
-
-.navbar-static-top {
+ .navbar-static-top {
     padding: 6px 0 6px;
 }
 
 a.navbar-brand {
-	font-size: 25px;
+	font-size: 28px;
 	font-family: 'Indie Flower', cursive;
 }
 
@@ -121,7 +135,7 @@ table {
 
 /*homepage*/
 
-@media screen (max-width : 992px) {
+@media only screen (max-width : 992px) {
 .col-md-8 {
 	float: left;
 }
@@ -153,7 +167,7 @@ input#title, textarea#info, input#due_date {
 }
 
 @media screen and (max-width: 768px) {
-	input#title, textarea#info, input#due_date {
+	input#title, textarea#info, input#due_date, textarea#text, input[type="submit"]{
 		width: 100%;
 	} 
 }
