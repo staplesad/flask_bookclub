@@ -6,25 +6,27 @@
 }
 </style>
 <div class="container">
-	<div class="row" id=login> 
-		<h1>Sign In</h1>
-		<form action='' method="post" name="login">
-		  {{form.hidden_tag()}}
-		  <p>Username <i class="fa fa-user fa-fw"></i><br>
-		  {{form.username}}<br>
-		  {% for error in form.username.errors %}
-		  <span style='color: red;'>[{{error}}]</span>
-		  {% endfor %}<br>
-		  </p>
-		  <p>Password <i class="fa fa-key fa-fw" aria-hidden="true"></i><br>
-		  {{form.password}}<br>
-		  {% for error in form.password.errors %}
-		  <span style='color: red;'>[{{error}}]</span>
-		  {% endfor %}<br>
-		  </p>
-		  <p>{{form.remember_me}} Remember Me</p>
-		  <p><input type='submit' value='Sign In' class='formbutton'></p>
-		</form>
+	<div class="row" id=signin> 
+	    <div class="col-md-12">
+			<h1>Sign In</h1>
+			<form action='' method="post" name="login">
+			  {{form.hidden_tag()}}
+			  <p>Username <i class="fa fa-user fa-fw"></i><br>
+			  {{form.username}}<br>
+			  {% for error in form.username.errors %}
+			  <span style='color: red;'>[{{error}}]</span>
+			  {% endfor %}<br>
+			  </p>
+			  <p>Password <i class="fa fa-key fa-fw" aria-hidden="true"></i><br>
+			  {{form.password}}<br>
+			  {% for error in form.password.errors %}
+			  <span style='color: red;'>[{{error}}]</span>
+			  {% endfor %}<br>
+			  </p>
+			  <p>{{form.remember_me}} Remember Me</p>
+			  <p><input type='submit' value='Sign In' class='formbutton'></p>
+			</form>
+		</div>
 	</div>
 </div>	
 {% endblock %}
