@@ -26,15 +26,14 @@
 			</form>
 		</div>
 		<div class="col-md-6">
-		    <br>
+      {% for quote in quotes %}
+      <br>
 			<br> 
-			<br>
-			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  So many books, so little time. - Frank Zappa <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
-			<br>
-			<br>
-			<br>
-			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid. - Jane Austen  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
-		</div>
+      <br>
+
+      <h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>{{quote}}<i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+      {% endfor %}
+    </div>
 	</div>
 </div>	
 {% endblock %}

@@ -34,13 +34,12 @@
 			</form>
 		</div>
 		<div class="col-md-4">
+        {% for quote in quotes %} 
 		    <br>
-			<br> 
-			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  ′Classic′ - a book which people praise and don't read. ― Mark Twain  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
-			<br>
-			<br>
-			<br>
-			<h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>  Life appears to me too short to be spent in nursing animosity or registering wrongs.  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+        <br>
+        <br> 
+      <h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>{{quote}} <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+      {% endfor %}
 		</div>
 	</div>
 </div>	
