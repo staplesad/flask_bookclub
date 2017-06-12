@@ -66,3 +66,13 @@ class Quote(db.Model):
 
     def __repr__(self):
         return '<Quote %r>' % self.quote_text
+
+class WishBook(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), index=True)
+    author = db.Column(db.String(255))
+    info = db.Column(db.String(550))
+    user_id = db.Column(db.Integer, db.ForeignKey('user_id'))
+
+    def __repr__(self):
+        return '<Book %r>' & self.title
