@@ -18,3 +18,8 @@ class BookForm(Form):
 class ReviewForm(Form):
     star = IntegerField('star', validators=[DataRequired()])
     text = StringField('text', widget=TextArea(), validators=[Optional()])
+
+class WishBookForm(Form):
+    title = StringField('title', validators=[DataRequired()])
+    author = StringField('author', validators=[Optional()])
+    info = StringField('info', widget=TextArea(), validators=[Optional()])

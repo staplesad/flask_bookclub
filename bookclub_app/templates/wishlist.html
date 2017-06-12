@@ -11,9 +11,11 @@
           <td> {{book.title}}</td>
           <td> {{book.author}}</td>
           <td> {{book.info}}</td>
+          <td><a href='/wishlist/{{book.title}}/edit' class='button1'>Edit</a></td>
         </tr>
         {% endfor %}
       </table>
+			<a href='/wishlist/new' class='button1'>Add Book</a>
     </div>
 
     <div class="col-md-12">
