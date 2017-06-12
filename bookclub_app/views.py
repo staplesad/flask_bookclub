@@ -4,7 +4,7 @@ from bookclub_app import app, db, lm
 from sqlalchemy import desc
 from random import randint
 from .forms import LoginForm, BookForm, ReviewForm
-from .models import User, Book, Review, Quote, check_password
+from .models import User, Book, Review, Quote, WishBook, check_password
 from .emails import new_book_notification, upcoming_notification
 ###LOGIN AND HOME ###################################
 @app.route('/')
@@ -216,6 +216,15 @@ def review_delete(title):
     db.session.commit()
     flash('Your review of  %s has been deleted.' % title)
     return redirect(url_for('book',title=title))
+
+####### User wishlist ###################
+@app.route('/wishlist', methods=['GET'])
+@login_required
+def wishlist():
+    user = g.user
+    books = WishBook.query.filter_by(user=current_user).all()
+    quote = choose_quote()
+    return render_template('wishlist.html', title='My Wishlist', user=user, books=books, quote=quote)
 
 ####### Quote functions ##################
 def choose_quote():
