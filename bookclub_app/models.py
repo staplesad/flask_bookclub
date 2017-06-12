@@ -62,7 +62,7 @@ class Review(db.Model):
 
 class Quote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    quote_text = db.Column(db.UnicodeText(550))
+    quote_text = db.Column(db.String(550))
 
     def __repr__(self):
         return '<Quote %r>' % self.quote_text
