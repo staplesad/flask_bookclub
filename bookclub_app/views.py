@@ -101,7 +101,7 @@ def new_book():
             flash('Notification sent.')
             return redirect(url_for('book', title=book.title))
     
-    return render_template('new_book.html', title='New Book', form=form,
+    return render_template('new_book.html', title='Add a New Book', form=form,
             quotes=quotes)
 
 @app.route('/book/<title>/edit', methods=['GET','POST'])
@@ -128,7 +128,7 @@ def edit_book(title):
         form.title.data=book.title
         form.due_date.data=book.due_date
         form.info.data = book.info
-    return render_template('new_book.html', title='Edit Book', form=form,
+    return render_template('new_book.html', title='Edit Book: %s' %title, form=form,
             quotes=quotes)
 
 @app.route('/book/<title>/notifyall')

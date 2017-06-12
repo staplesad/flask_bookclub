@@ -36,13 +36,17 @@
     </div>
     </nav>
 	<section>
-      {% with messages=get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-      {% for message in messages %}
-      <li> {{message}} </li>
-      {% endfor %}
-    </ul>
+	<div class= "container">
+		<div class= "row">
+			<div class="col-md-12">
+				<p>{% with messages=get_flashed_messages() %}
+				{% if messages %}
+				{% for message in messages %}
+				{{message}} 
+				{% endfor %}</p>
+			</div>
+		</div>
+	</div>
     <hr>
     {% endif %}
     {% endwith %}

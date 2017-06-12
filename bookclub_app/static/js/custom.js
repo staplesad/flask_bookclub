@@ -7,3 +7,6 @@ function updateCount(limit){
   $('#characters').text(output);
 }
 
+
+
+
