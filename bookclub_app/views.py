@@ -224,15 +224,4 @@ def choose_quote():
     quote = Quote.query.get(random_quote)
     return quote.quote_text
 
-###########################################
-###### TEST QUOTES ########################
-###########################################
-@app.route('/test_quote', methods=['GET'])
-def display_quote():
-    total_quotes = Quote.query.count()
-    random_quote = randint(1,total_quotes)
-    quote = Quote.query.get(random_quote)
-    flash('the quote is %s.' % quote.quote_text)
-    flash('number of quotes is %d.' %total_quotes)
-    return render_template('base.html', title="Quote")
 
