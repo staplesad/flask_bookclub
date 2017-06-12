@@ -60,3 +60,9 @@ class Review(db.Model):
     def __repr__(self):
         return '<Review %r>' % self.star
 
+class Quote(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    quote_text = db.Column(db.String(550))
+
+    def __repr__(self):
+        return '<Quote %r>' % self.quote_text

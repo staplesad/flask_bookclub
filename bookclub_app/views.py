@@ -2,8 +2,9 @@ from flask import render_template, flash, redirect, session, url_for, request, g
 from flask_login import login_user, logout_user, current_user, login_required
 from bookclub_app import app, db, lm
 from sqlalchemy import desc
+from random import randint
 from .forms import LoginForm, BookForm, ReviewForm
-from .models import User, Book, Review, check_password
+from .models import User, Book, Review, Quote, check_password
 from .emails import new_book_notification, upcoming_notification
 ###LOGIN AND HOME ###################################
 @app.route('/')
@@ -12,7 +13,9 @@ from .emails import new_book_notification, upcoming_notification
 def index():
     user = g.user
     books = Book.query.order_by(desc(Book.due_date)).all()
-    return render_template('index.html', title='Home', user=user, books=books)
+    quote = choose_quote()
+    return render_template('index.html', title='Home', user=user, books=books,
+            quote=quote)
 
 @lm.user_loader
 def load_user(id):
@@ -60,7 +63,7 @@ def book(title):
         flash('Book %s not found.' % title)
         return redirect(url_for('index'))
     reviews = Review.query.filter_by(book=book).all()
-    return render_template('book.html', book=book, reviews=reviews)
+    return render_template('book.html', title=title, book=book, reviews=reviews)
 
 @app.route('/book/<title>/delete', methods=['GET','POST'])
 @login_required
@@ -78,6 +81,10 @@ def book_delete(title):
 @login_required
 def new_book():
     form=BookForm()
+    quote1 = choose_quote()
+    quote2 = choose_quote()
+    quotes = [quote1, quote2]
+
     if form.validate_on_submit():
         book = Book(title=form.title.data, due_date=form.due_date.data,
                 info=form.info.data,
@@ -94,13 +101,18 @@ def new_book():
             flash('Notification sent.')
             return redirect(url_for('book', title=book.title))
     
-    return render_template('new_book.html', title='New Book', form=form)
+    return render_template('new_book.html', title='New Book', form=form,
+            quotes=quotes)
 
 @app.route('/book/<title>/edit', methods=['GET','POST'])
 @login_required
 def edit_book(title):
     book = Book.query.filter_by(title=title).first()
     form=BookForm()
+    quote1 = choose_quote()
+    quote2 = choose_quote()
+    quotes = [quote1, quote2]
+    
     if book == None:
         flash('Book %s not found.' % title)
         return redirect(url_for('index'))
@@ -116,7 +128,9 @@ def edit_book(title):
         form.title.data=book.title
         form.due_date.data=book.due_date
         form.info.data = book.info
-    return render_template('new_book.html', title='Edit Book', form=form)
+    return render_template('new_book.html', title='Edit Book', form=form,
+            quotes=quotes)
+
 @app.route('/book/<title>/notifyall')
 @login_required
 def notify_all(title):
@@ -141,6 +155,10 @@ def new_review(title):
     form=ReviewForm()
     book=Book.query.filter_by(title=title).first()
     review=Review.query.filter_by(book=book).filter_by(author=current_user).first()
+    quote1 = choose_quote()
+    quote2 = choose_quote()
+    quotes = [quote1, quote2]
+    
     if book==None:
         flash('Book %s not found.' % title)
         return redirect(url_for('index'))
@@ -153,7 +171,8 @@ def new_review(title):
         db.session.commit()
         flash('Review has been saved.')
         return redirect(url_for('book', title=title))
-    return render_template('new_review.html', title='New Review', form=form)
+    return render_template('new_review.html', title='New Review for %s' %title,
+            form=form, quotes=quotes)
 
 @app.route('/book/<title>/review/edit', methods=['GET','POST'])
 @login_required
@@ -161,6 +180,10 @@ def edit_review(title):
     form=ReviewForm()
     book=Book.query.filter_by(title=title).first()
     review=Review.query.filter_by(book=book).filter_by(author=current_user).first()
+    quote1 = choose_quote()
+    quote2 = choose_quote()
+    quotes = [quote1, quote2]
+    
     if book==None:
         flash('Book %s not found.' % title)
         return redirect(url_for('index'))
@@ -178,7 +201,8 @@ def edit_review(title):
     else:
         form.star.data=review.star
         form.text.data=review.text
-    return render_template('new_review.html', title='Edit Review', form=form)
+    return render_template('new_review.html', title='Edit Review for %s' %
+            title, form=form, quotes=quotes)
 
 @app.route('/book/<title>/review/delete', methods=['GET','POST'])
 @login_required
@@ -192,4 +216,12 @@ def review_delete(title):
     db.session.commit()
     flash('Your review of  %s has been deleted.' % title)
     return redirect(url_for('book',title=title))
+
+####### Quote functions ##################
+def choose_quote():
+    total_quotes = Quote.query.count()
+    random_quote = randint(1,total_quotes)
+    quote = Quote.query.get(random_quote)
+    return quote.quote_text
+
 
