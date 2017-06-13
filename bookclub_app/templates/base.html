@@ -29,7 +29,7 @@
 		    {% if g.user.is_authenticated %}
             <li><a href='/index'> Home</a></li>
             <li><a href='/book'> New Book</a></li>
-            <li><a href='/logout'><i class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</a></li>
+            <li><a href='/logout' id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</a></li>
             {% endif %}
         </ul>
       </div><!--/.nav-collapse -->
@@ -37,15 +37,11 @@
     </nav>
 	<section>
 	<div class= "container">
-		<div class= "row">
-			<div class="col-md-12">
 				<p>{% with messages=get_flashed_messages() %}
 				{% if messages %}
 				{% for message in messages %}
 				{{message}} 
 				{% endfor %}</p>
-			</div>
-		</div>
 	</div>
     <hr>
     {% endif %}
