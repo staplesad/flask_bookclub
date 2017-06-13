@@ -99,7 +99,7 @@ def new_book():
                 recipients.append(user.email)
             new_book_notification(book, recipients)
             flash('Notification sent.')
-            return redirect(url_for('book', title=book.title))
+        return redirect(url_for('book', title=book.title))
     
     return render_template('new_book.html', title='Add a New Book', form=form,
             quotes=quotes)
