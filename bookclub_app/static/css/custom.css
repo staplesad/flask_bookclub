@@ -23,9 +23,7 @@ html {
     min-height: 100%;
 }
 
-section {
-	margin: 2%;
-}
+
 
 .navbar-inverse .navbar-toggle {
     border-color: lavender;
@@ -53,8 +51,10 @@ section {
 input[type="submit"] {
     width: 33%;
     background-color: #333333;
-    border-style: none;
-    padding: 8px;
+	border-style: solid;
+    border-width: thin;
+	border-color: #333;
+    padding: 6px;
 	font-size: 18px;
 	color: lavender;
 }
@@ -78,9 +78,11 @@ input.formbutton {
 .button2  { 
 	font-size: 18px; 
 	background-color: #333;
-    padding: 14px 38px 14px 38px;
-	margin: 2px;
+    padding: 12px 38px 12px 38px;
 	color: lavender;
+	border-style: solid;
+    border-width: thin;
+	border-color: #333;
 }	
 	
 a.button1:hover, a.button2:hover, input[type="submit"]:hover {
@@ -100,7 +102,7 @@ a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 }   
 
 	.nav>li>a {
-    padding: 20px 42px;
+    padding: 20px 0px 20px 98px;
 	font-size: 18px;
  }	
 
@@ -113,7 +115,7 @@ a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 }
 
 a.navbar-brand {
-	font-size: 28px;
+	font-size: 27px;
 	font-family: 'Indie Flower', cursive;
 }
 
@@ -127,12 +129,31 @@ a.navbar-brand {
 }
 }
 
+table{
+    table-layout: fixed;
+}
+
 td {
 	padding: 20px 20px;
     border-bottom-style: solid;
     border-bottom-width: thick;
     border-bottom-color: ghostwhite;
     background-color: lavender;
+	word-wrap: break-word;
+}
+
+td#viewbook {
+	text-align: center;
+	border-left-style: solid;
+	border-left-width: thick;
+    border-left-color: ghostwhite;
+}
+
+@media screen and (max-width: 768px) {
+	
+	td#viewbook { 
+		display: none;
+}
 }
 
 
@@ -144,19 +165,6 @@ table {
 
 /*homepage*/
 
-@media only screen (max-width : 992px) {
-.col-md-8 {
-	float: left;
-}
-
-.col-md-4 {
-	float: right;
- }
-}
-
-.col-md-4 {
-	text-align: left;
- }
 
  /*New Book*/
 

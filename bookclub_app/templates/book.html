@@ -36,7 +36,7 @@
 			{% endif %}
 			{% if book.author.id == g.user.id %}<p> 
 			<a href='/book/{{book.title}}/edit'class='button1'>Edit Info</a>
-			<a href='/book/{{book.title}}/delete' onclick="return confirm('Are you sure you want to delete?')" class='button1'>Delete Book</a>
+			<a href='/book/{{book.title}}/delete' onclick="return confirm('Are you sure you want to delete {{book.title}}?')" class='button1'>Delete Book</a>
 			</p>{% endif %}
 			<hr>
 		</div>
