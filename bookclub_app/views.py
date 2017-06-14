@@ -245,7 +245,8 @@ def add_wishbook():
         db.session.add(book)
         db.session.commit()
         flash('New book has been added!')
-        return redirect(url_for('wishlist'))    
+        return redirect(url_for('index'))
+#        return redirect(url_for('wishlist'))
     return render_template('new_wishbook.html', title='Add a New Book',
             form=form, length_chars=None)
 
