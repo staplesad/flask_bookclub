@@ -237,16 +237,15 @@ def add_wishbook():
         db.session.add(book)
         db.session.commit()
         flash('New book has been added!')
-        return redirect(url_for('wishlist'))
-    
-    return render_template('new_wishbook.html', title='Add a New Book', form=form)
+        return redirect(url_for('wishlist'))    
+    return render_template('new_wishbook.html', title='Add a New Book',
+            form=form, length_chars=None)
 
 @app.route('/wishlist/<title>/edit', methods=['GET', 'POST'])
 @login_required
 def edit_wishbook(title):
     book = WishBook.query.filter_by(user=current_user, title=title).first()
     form=WishBookForm()
-    
     if book == None:
         flash('Book %s not found.' % title)
         return redirect(url_for('wishlist'))
@@ -262,7 +261,9 @@ def edit_wishbook(title):
         form.title.data=book.title
         form.author.data=book.author
         form.info.data = book.info
-    return render_template('new_wishbook.html', title='Edit Book: %s' %title, form=form)
+    form_len = len(form.info.data)
+    return render_template('new_wishbook.html', title='Edit Book: %s' %title,
+            form=form, length_chars=form_len)
 
     
 ####### Quote functions ##################

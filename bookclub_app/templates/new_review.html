@@ -21,8 +21,10 @@
 			  </p>
 			  <p> and says:<br>
         {{form.text (cols=80, rows=5)}}<br>
-        <span id="characters"></span>/550
-			  </p>
+        <span id="characters"></span>/550<br>
+			  {% for error in form.info.errors %}
+			  <span style='color: red;'>[{{error}}]</span>
+			  {% endfor %}</p>
 			  <p><input type="submit" value="Save Review"></p>
 			</form>
 		</div>
