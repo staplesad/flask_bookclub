@@ -3,8 +3,8 @@ from flask_login import login_user, logout_user, current_user, login_required
 from bookclub_app import app, db, lm
 from sqlalchemy import desc
 from random import randint
-from .forms import LoginForm, BookForm, ReviewForm, WishBookForm
-from .models import User, Book, Review, Quote, WishBook, check_password
+from .forms import LoginForm, BookForm, ReviewForm
+from .models import User, Book, Review, Quote, check_password
 from .emails import new_book_notification, upcoming_notification
 ###LOGIN AND HOME ###################################
 @app.route('/')
@@ -217,54 +217,6 @@ def review_delete(title):
     flash('Your review of  %s has been deleted.' % title)
     return redirect(url_for('book',title=title))
 
-####### User wishlist ###################
-@app.route('/wishlist', methods=['GET'])
-@login_required
-def wishlist():
-    books = WishBook.query.filter_by(user=current_user).all()
-    quote = choose_quote()
-    return render_template('wishlist.html', title='My Wishlist', user=current_user, books=books, quote=quote)
-
-
-@app.route('/wishlist/new', methods=['GET','POST'])
-@login_required
-def add_wishbook():
-    form=WishBookForm()
-    if form.validate_on_submit():
-        book = WishBook(title=form.title.data, author=form.author.data,
-                info=form.info.data,
-                user=current_user)
-        db.session.add(book)
-        db.session.commit()
-        flash('New book has been added!')
-        return redirect(url_for('wishlist'))
-    
-    return render_template('new_wishbook.html', title='Add a New Book', form=form)
-
-@app.route('/wishlist/<title>/edit', methods=['GET', 'POST'])
-@login_required
-def edit_wishbook(title):
-    book = WishBook.query.filter_by(user=current_user, title=title).first()
-    form=WishBookForm()
-    
-    if book == None:
-        flash('Book %s not found.' % title)
-        return redirect(url_for('wishlist'))
-    if form.validate_on_submit():
-        book.title = form.title.data
-        book.author = form.author.data
-        book.info = form.info.data
-        db.session.add(book)
-        db.session.commit()
-        flash('Changes have been saved.')
-        return redirect(url_for('wishlist'))
-    else:
-        form.title.data=book.title
-        form.author.data=book.author
-        form.info.data = book.info
-    return render_template('new_wishbook.html', title='Edit Book: %s' %title, form=form)
-
-    
 ####### Quote functions ##################
 def choose_quote():
     total_quotes = Quote.query.count()

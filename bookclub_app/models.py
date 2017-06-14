@@ -16,8 +16,6 @@ class User(db.Model):
 
     books = db.relationship('Book', backref='author', lazy='dynamic')
     reviews = db.relationship('Review', backref='author', lazy='dynamic')
-    wishbook = db.relationship('WishBook', backref='user', lazy='dynamic')
-
     def __init__(self, name, email, password):
         self.nickname = name
         self.email = email
@@ -68,13 +66,3 @@ class Quote(db.Model):
 
     def __repr__(self):
         return '<Quote %r>' % self.quote_text
-
-class WishBook(db.Model):
-    id=db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(255), index=True)
-    author = db.Column(db.String(255))
-    info = db.Column(db.String(550))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    def __repr__(self):
-        return '<Book %r>' & self.title
