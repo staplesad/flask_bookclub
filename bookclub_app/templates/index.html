@@ -25,7 +25,22 @@
 			<br>
 			<br>
       <h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i> {{quote}}  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
-		</div>
+    </div>
+    <div class="col-md-12">
+      <h1> {{user.nickname}}'s Wishlist</h1>
+      <br>
+      <table>
+        {% for wbook in wbooks %}
+        <tr>
+          <td> {{wbook.title}}</td>
+          <td> {{wbook.author}}</td>
+          <td> {{wbook.info}}</td>
+          <td><a href='/wishlist/{{wbook.title}}/edit' class='button1'>Edit</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+			<a href='/wishlist/new' class='button1'>Add Book</a>
+    </div>
 	</div>
 </div>		
 

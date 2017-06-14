@@ -13,8 +13,10 @@ from .emails import new_book_notification, upcoming_notification
 def index():
     user = g.user
     books = Book.query.order_by(desc(Book.due_date)).all()
+    wbooks = WishBook.query.filter_by(user=current_user).all()
     quote = choose_quote()
-    return render_template('index.html', title='Home', user=user, books=books,
+    return render_template('index.html', title='Home', user=user,
+            books=books, wbooks=wbooks, 
             quote=quote)
 
 @lm.user_loader
@@ -51,6 +53,11 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+@app.route('/add_book')
+@login_required
+def add_book_opt():
+    return render_template('add_book.html', title='Add Book')
 
 #######################################
 ##### BOOK SECTION ####################
