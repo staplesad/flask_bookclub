@@ -102,7 +102,7 @@ def new_book():
         return redirect(url_for('book', title=book.title))
     
     return render_template('new_book.html', title='Add a New Book', form=form,
-            quotes=quotes)
+            quotes=quotes, length_chars=None)
 
 @app.route('/book/<title>/edit', methods=['GET','POST'])
 @login_required
@@ -128,8 +128,9 @@ def edit_book(title):
         form.title.data=book.title
         form.due_date.data=book.due_date
         form.info.data = book.info
+    form_len=len(form.info.data)
     return render_template('new_book.html', title='Edit Book: %s' %title, form=form,
-            quotes=quotes)
+            quotes=quotes, length_chars=form_len)
 
 @app.route('/book/<title>/notifyall')
 @login_required
@@ -172,7 +173,7 @@ def new_review(title):
         flash('Review has been saved.')
         return redirect(url_for('book', title=title))
     return render_template('new_review.html', title='New Review for %s' %title,
-            form=form, quotes=quotes)
+            form=form, quotes=quotes, length_chars=None)
 
 @app.route('/book/<title>/review/edit', methods=['GET','POST'])
 @login_required
@@ -201,8 +202,9 @@ def edit_review(title):
     else:
         form.star.data=review.star
         form.text.data=review.text
+    form_len=len(form.text.data)
     return render_template('new_review.html', title='Edit Review for %s' %
-            title, form=form, quotes=quotes)
+            title, form=form, quotes=quotes,length_chars=form_len)
 
 @app.route('/book/<title>/review/delete', methods=['GET','POST'])
 @login_required
