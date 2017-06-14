@@ -20,9 +20,10 @@
           {{length_chars}}
           {% else %}0{% endif %}</span>/550<br>
 			  {% for error in form.info.errors %}
-			  <span style='color: red;'>[{{error}}]</span>
-			  {% endfor %}</p>
-			  <p><input type='submit' value='Save Book' class='formbutton'></p>
+			  <span style='color: red;'>[{{error}}]</span></p>
+			  {% endfor %}
+			  <br>
+			  <p><input type="submit" value="Save Book" class="formbutton"></p>
 			</form>
 		</div>
 	</div>
