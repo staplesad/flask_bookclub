@@ -35,7 +35,8 @@
           <td> {{wbook.title}}</td>
           <td> {{wbook.author}}</td>
           <td> {{wbook.info}}</td>
-          <td><a href='/wishlist/{{wbook.title}}/edit' class='button1'>Edit</a></td>
+          <td id="viewbook"><a href='/wishlist/{{wbook.title}}/edit' class='button1'>Edit</a></td>
+          <td ><a href='/wishlist/{{wbook.title}}/delete' class='button1'>Delete</a></td>
         </tr>
         {% endfor %}
       </table>
