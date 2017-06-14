@@ -36,7 +36,7 @@
           <td> {{wbook.author}}</td>
           <td> {{wbook.info}}</td>
           <td id="viewbook"><a href='/wishlist/{{wbook.title}}/edit' class='button1'>Edit</a></td>
-          <td ><a href='/wishlist/{{wbook.title}}/delete' class='button1'>Delete</a></td>
+          <td ><a href='/wishlist/{{wbook.title}}/delete' onclick="return confirm('Are you sure you want to delete {{book.title}}?')" class='button1'>Delete</a></td>
         </tr>
         {% endfor %}
       </table>
