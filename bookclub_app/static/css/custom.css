@@ -59,11 +59,14 @@ input[type="submit"] {
 	color: lavender;
 }
 
+
 @media screen and (max-width: 768px) {
 input.formbutton {
 	width: 100%;
 } 
 }
+
+
 
 .button1  {
     background-color: lavender; 
@@ -79,6 +82,7 @@ input.formbutton {
 	font-size: 18px; 
 	background-color: #333;
     padding: 12px 38px 12px 38px;
+	margin: 2px;
 	color: lavender;
 	border-style: solid;
     border-width: thin;
@@ -105,29 +109,33 @@ a.button1:hover, a.button2:hover, input[type="submit"]:hover {
     padding: 20px 0px 20px 98px;
 	font-size: 18px;
  }	
-
- .navbar-inverse .navbar-nav>li>a {
+	
+.navbar-inverse .navbar-nav>li>a {
     color: lavender;
 }
 
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: grey;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+	color: grey;
+    background-color: transparent;
+}	
+	
+	
  .navbar-static-top {
     padding: 6px 0 6px 6px;
 }
 
-a.navbar-brand {
-	font-size: 27px;
-	font-family: 'Indie Flower', cursive;
-}
-
-.navbar-inverse .navbar-brand {
-    color: lavender;
-}
-
-@media screen and (min-width: 768px) {
-a.navbar-brand {
+.navbar-inverse a.navbar-brand {
 	font-size: 30px;
+	font-family: 'Indie Flower', cursive;
+	color: lavender;
 }
-}
+
+
 
 table{
     table-layout: fixed;

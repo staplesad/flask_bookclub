@@ -1,24 +1,32 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<div class "container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1> {{user.nickname}}'s Wishlist</h1>
-      <br>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1> {{user.nickname}}'s Wishlist</h1>
+		</div>
+	</div>
+</div> 
+<br> 
+<div class="container">
+  <div class="row"> 
+	<div class="col-md-12">
       <table>
         {% for book in books %}
         <tr>
-          <td> {{book.title}}</td>
+          <td><i class="fa fa-book" aria-hidden="true"></i> {{book.title}}</td>
           <td> {{book.author}}</td>
           <td> {{book.info}}</td>
-          <td><a href='/wishlist/{{book.title}}/edit' class='button1'>Edit</a></td>
+          <td id="viewbook"><a href='/wishlist/{{book.title}}/edit' class='button1' style="padding: 2% 12%; font-size: 18px;">Edit</a></td>
         </tr>
         {% endfor %}
       </table>
-			<a href='/wishlist/new' class='button1'>Add Book</a>
+	  <br>
+			<a href='/wishlist/new' class='button2'>Add Book</a>
     </div>
-
-    <div class="col-md-12">
+	<div class="col-md-12">
       <br>
       <br>
       <h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i> {{quote}}  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
