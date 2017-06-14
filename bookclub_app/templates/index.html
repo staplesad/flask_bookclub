@@ -50,9 +50,9 @@
         <tr>
           <td> {{wbook.title}}</td>
           <td> {{wbook.author}}</td>
-          <td> {{wbook.info}}</td>
-          <td id="viewbook"><a href='/wishlist/{{wbook.title}}/edit' class='button1'>Edit</a></td>
-          <td ><a href='/wishlist/{{wbook.title}}/delete' onclick="return confirm('Are you sure you want to delete {{wbook.title}}?')" class='button1'>Delete</a></td>
+          <td id="viewbook"> {{wbook.info}}</td>
+          <td id="viewbook"><a href='/wishlist/{{wbook.title}}/edit' style="padding: 2% 12%; font-size: 18px;" class='button1'>Edit Book</a></td>
+          <td id="viewbook"><a href='/wishlist/{{wbook.title}}/delete' style="padding: 2% 12%; font-size: 18px;" onclick="return confirm('Are you sure you want to delete {{wbook.title}}?')" class='button1'>Delete Book</a></td>
         </tr>
         {% endfor %}
       </table>
