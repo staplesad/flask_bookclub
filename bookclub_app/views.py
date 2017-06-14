@@ -264,7 +264,8 @@ def edit_wishbook(title):
         db.session.add(book)
         db.session.commit()
         flash('Changes have been saved.')
-        return redirect(url_for('wishlist'))
+        return redirect(url_for('index'))
+#        return redirect(url_for('wishlist'))
     else:
         form.title.data=book.title
         form.author.data=book.author
