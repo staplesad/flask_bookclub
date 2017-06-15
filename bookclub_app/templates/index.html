@@ -16,7 +16,7 @@
 				  <tr>
 					<td><a href='/book/{{book.title}}' style="color: #333;"><i class="fa fa-calendar" aria-hidden="true"></i>  {{book.due_date}}</a></td>
 					<td><a href='/book/{{book.title}}' style="color: #333;">{{book.title}}</a></td>
-					<td id="viewbook"><a href='/book/{{book.title}}' class='button1' style="padding: 2% 12%; font-size: 18px;"> View Book </a></td>
+					<td id="viewbook"><a href='/book/{{book.title}}' class='button1' style="padding: 2% 12%; font-size: 18px;"> View Discussion </a></td>
 				  </tr>
 				  {% endfor %}
 				</table>
@@ -25,10 +25,26 @@
 			<br>
 			<br>
       <h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i> {{quote}}  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
-    </div>
-    <div class="col-md-12">
-      <h1> {{user.nickname}}'s Wishlist</h1>
-      <br>
+	        <br>
+			<br>
+		</div>
+	</div>
+</div>	
+  <div class="container">
+	<div class="row"> 
+		<div class="col-md-8">
+	       <h1> {{user.nickname}}'s Reading List</h1>
+		   <br>
+		</div>
+        <div class="col-md-4" id='leavebook'>
+		     <a href='/wishlist/new' style='float: right;' class='button2'>Add Book</a>
+			<br> 
+        </div>  	
+	</div>
+</div>		
+<div class="container">
+	<div class="row"> 	
+		<div class="col-md-12">
       <table>
         {% for wbook in wbooks %}
         <tr>
@@ -42,6 +58,7 @@
       </table>
     </div>
 	</div>
-</div>		
+</div>	
+<br>	
 
 {% endblock %}

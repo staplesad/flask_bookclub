@@ -37,13 +37,11 @@
     </div>
     </nav>
 	<section>
-	<div class= "container">
 				<p>{% with messages=get_flashed_messages() %}
 				{% if messages %}
 				{% for message in messages %}
 				{{message}} 
 				{% endfor %}</p>
-	</div>
     <hr>
     {% endif %}
     {% endwith %}

@@ -135,6 +135,9 @@ a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 	color: lavender;
 }
 
+.navbar-brand {
+    height: 58px;
+}
 
 
 table{
@@ -187,12 +190,12 @@ button, input, select, textarea {
 	background-color: lavender;
 }
 
-input#title, textarea#info, input#due_date {
+input#title, textarea#info, input#due_date, input#author {
 	width: 90%;
 }
 
 @media screen and (max-width: 768px) {
-	input#title, textarea#info, input#due_date, textarea#text, input[type="submit"] {
+	input#title, textarea#info, input#due_date, input#author, textarea#text, input[type="submit"] {
 		width: 100%;
 		}
 }
@@ -235,7 +238,10 @@ input#username, input#password {
 	.row#login {
     margin-left: 25%;
 }
+}
 input#username, input#password {
     width: 57%;
 }
-}
+
+
+
