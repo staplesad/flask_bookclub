@@ -16,8 +16,7 @@ def index():
     wbooks = WishBook.query.filter_by(user=current_user).all()
     quote = choose_quote()
     return render_template('index.html', title='Home', user=user,
-            books=books, wbooks=wbooks, 
-            quote=quote)
+            books=books, wbooks=wbooks, quote=quote)
 
 @lm.user_loader
 def load_user(id):
@@ -246,7 +245,8 @@ def add_wishbook():
         db.session.add(book)
         db.session.commit()
         flash('New book has been added!')
-        return redirect(url_for('wishlist'))    
+        return redirect(url_for('index'))
+#        return redirect(url_for('wishlist'))
     return render_template('new_wishbook.html', title='Add a New Book',
             form=form, length_chars=None)
 
@@ -265,7 +265,8 @@ def edit_wishbook(title):
         db.session.add(book)
         db.session.commit()
         flash('Changes have been saved.')
-        return redirect(url_for('wishlist'))
+        return redirect(url_for('index'))
+#        return redirect(url_for('wishlist'))
     else:
         form.title.data=book.title
         form.author.data=book.author
@@ -274,6 +275,17 @@ def edit_wishbook(title):
     return render_template('new_wishbook.html', title='Edit Book: %s' %title,
             form=form, length_chars=form_len)
 
+@app.route('/wishlist/<title>/delete', methods=['GET','POST'])
+@login_required
+def wbook_delete(title):
+    book=WishBook.query.filter_by(user=current_user, title=title).first()
+    if book == None:
+        flash('Review of %s not found.' % title)
+        return redirect(url_for('index'))
+    db.session.delete(book)
+    db.session.commit()
+    flash('%s has been deleted.' % title)
+    return redirect(url_for('index'))
     
 ####### Quote functions ##################
 def choose_quote():
