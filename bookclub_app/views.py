@@ -231,7 +231,7 @@ def review_delete(title):
 def wishlist():
     books = WishBook.query.filter_by(user=current_user).all()
     quote = choose_quote()
-    return render_template('wishlist.html', title='My Wishlist', user=current_user, books=books, quote=quote)
+    return render_template('wishlist.html', title='My Reading List', user=current_user, books=books, quote=quote)
 
 
 @app.route('/wishlist/new', methods=['GET','POST'])
