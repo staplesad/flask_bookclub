@@ -8,6 +8,12 @@ from .models import User, Book, Review, Quote, WishBook, check_password
 from .emails import new_book_notification, upcoming_notification
 ###LOGIN AND HOME ###################################
 @app.route('/')
+def first_page():
+    user = g.user
+    if user is not None:
+        redirect(url_for('index'))
+    return render_template('signed_out_index.html', title='Home')
+
 @app.route('/index')
 @login_required
 def index():
@@ -51,7 +57,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('first_page'))
 
 @app.route('/add_book')
 @login_required
@@ -231,7 +237,7 @@ def review_delete(title):
 def wishlist():
     books = WishBook.query.filter_by(user=current_user).all()
     quote = choose_quote()
-    return render_template('wishlist.html', title='My Wishlist', user=current_user, books=books, quote=quote)
+    return render_template('wishlist.html', title='My Reading List', user=current_user, books=books, quote=quote)
 
 
 @app.route('/wishlist/new', methods=['GET','POST'])
