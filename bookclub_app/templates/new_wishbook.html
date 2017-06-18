@@ -2,9 +2,12 @@
 {% block content %}
 <div class="container">
 	<div class="row"> 
-		<div class="col-md-12">
+		<div class="col-md-4">
 			<h1> {{title}} </h1>
 		</div>
+		<div class="col-md-4" id='leavebook' style= 'padding-right: 8%'>
+			<input type='submit' form="addbookform" value='Save Book' style='float: right; width: 88%;' class='formbutton'>
+        </div>  
 	</div>
 </div>	
 		
@@ -32,6 +35,14 @@
 			  <br>
 			  <p><input type="submit" value="Save Book" class="formbutton"></p>
 			</form>
+		</div>
+		<div class="col-md-4">
+        {% for quote in quotes %} 
+		    <br>
+        <br>
+        <br> 
+      <h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>{{quote}} <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+      {% endfor %}
 		</div>
 	</div>
 </div>	

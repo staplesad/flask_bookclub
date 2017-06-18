@@ -18,7 +18,7 @@ h1 {
 	font-family:  'Indie Flower', cursive;
 	} 
 
-html {
+html, body {
     position: relative;
     min-height: 100%;
 }
@@ -103,19 +103,44 @@ a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 
 /* Navigation & Branding */
 
+.navbar-nav>li>.dropdown-menu {
+    background-color: ghostwhite;
+}
+
+.dropdown-menu { 
+font-size: 18px;
+border-radius: 0px;
+}
+
+.dropdown-menu>li>a {
+    padding: 18px 31px;
+}
+
+#dashedborder {
+	border-bottom-style: dashed;
+    border-width: thin;	
+}    
+	
+
+
+.dropdown-menu>li>a:hover {
+    background-color: lavender;
+}
+
+
 #navbar {
 	float: right;
 }   
 
 	.nav>li>a {
-    padding: 25px 40px 25px 40px;
+    padding: 25px 60px 25px 60px;
 	font-size: 18px;
  }	
 	
 	
 @media screen and (max-width: 992px) {
 	.nav>li>a {
-    padding: 23px 25px 25px 15px;
+    padding: 23px 30px 25px 30px;
 	font-size: 18px;
   }	
 }
@@ -233,12 +258,21 @@ footer {
 	padding-top: 30px;
 	margin-top: 40px;
 	width: 100%;
-    height: 80px;
+    min-height: 80px;
 	position: absolute;
 	overflow: hidden;
     bottom: 0;
 	border-top-style: dashed;
     border-top-width: thin;
+}
+
+.wrap {
+    height: auto;
+    margin: 0 auto -80px; /* footer height + space */
+    min-height: 100%;
+    padding: 0 0 80px; /* footer height + space */
+    box-sizing: border-box;
+    overflow: auto;
 }
 
 /*Login/SignIn*/
