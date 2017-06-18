@@ -18,20 +18,24 @@ h1 {
 	font-family:  'Indie Flower', cursive;
 	} 
 
-html {
+html, body {
     position: relative;
     min-height: 100%;
 }
 
 
+.navbar-inverse {
+    background-color: ghostwhite;
+	border-bottom-style: dashed;
+}
 
 .navbar-inverse .navbar-toggle {
-    border-color: lavender;
+    border-color: #222;
     border-width: 1px;
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
-    background-color: lavender;
+    background-color: #222;
 }
 
 .navbar-toggle .icon-bar {
@@ -45,8 +49,6 @@ html {
     margin-bottom: 8px;
     border-radius: 8px;
 }
-
-
 
 input[type="submit"] {
     width: 33%;
@@ -69,7 +71,7 @@ input.formbutton {
 
 
 .button1  {
-    background-color: lavender; 
+	background-color: lavender; 
     padding: 6px;
 	font-size: 16px;
 	color: #333;
@@ -101,17 +103,50 @@ a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 
 /* Navigation & Branding */
 
+.navbar-nav>li>.dropdown-menu {
+    background-color: ghostwhite;
+}
+
+.dropdown-menu { 
+font-size: 18px;
+border-radius: 0px;
+}
+
+.dropdown-menu>li>a {
+    padding: 18px 31px;
+}
+
+#dashedborder {
+	border-bottom-style: dashed;
+    border-width: thin;	
+}    
+	
+
+
+.dropdown-menu>li>a:hover {
+    background-color: lavender;
+}
+
+
 #navbar {
 	float: right;
 }   
 
 	.nav>li>a {
-    padding: 20px 0px 20px 98px;
+    padding: 25px 60px 25px 60px;
 	font-size: 18px;
  }	
 	
+	
+@media screen and (max-width: 992px) {
+	.nav>li>a {
+    padding: 23px 30px 25px 30px;
+	font-size: 18px;
+  }	
+}
+	
 .navbar-inverse .navbar-nav>li>a {
-    color: lavender;
+    color: #222;
 }
 
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
@@ -120,8 +155,9 @@ a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-	color: grey;
-    background-color: transparent;
+    background-color: lavender;
+	color: #222;
+	border-color: transparent;
 }	
 	
 	
@@ -132,11 +168,12 @@ a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 .navbar-inverse a.navbar-brand {
 	font-size: 30px;
 	font-family: 'Indie Flower', cursive;
-	color: lavender;
+	padding-bottom: 50px;
+	color: #222;
 }
 
 .navbar-brand {
-    height: 58px;
+    line-height: 47px;
 }
 
 
@@ -216,32 +253,47 @@ td:empty {
 /*Footer*/
 
 footer {
-	background-color: #efeeee;
+	background-color: ghostwhite;
 	text-align: center;
-	padding-top: 20px;
+	padding-top: 30px;
+	margin-top: 40px;
 	width: 100%;
-    height: 60px;
+    min-height: 80px;
 	position: absolute;
 	overflow: hidden;
     bottom: 0;
+	border-top-style: dashed;
+    border-top-width: thin;
+}
+
+.wrap {
+    height: auto;
+    margin: 0 auto -80px; /* footer height + space */
+    min-height: 100%;
+    padding: 0 0 80px; /* footer height + space */
+    box-sizing: border-box;
+    overflow: auto;
 }
 
 /*Login/SignIn*/
 
 
 
-input#username, input#password {
-    width: 100%;
+
+
+@media screen and (max-width: 768px) {
+	 input#username, input#password {
+		width: 100%;
+	}
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
 	.row#login {
-    margin-left: 25%;
+		margin-left: 30%;
+	}
+	input#username, input#password {
+		width: 60%;
+	}
 }
-}
-input#username, input#password {
-    width: 57%;
-}
-
 
 
