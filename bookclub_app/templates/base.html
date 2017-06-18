@@ -34,19 +34,23 @@
             <li><a href='/add_book'> Add Book</a></li>
             <!--            <li><a href='/wishlist'> My Reading List </a></li>-->
             <li><a href='/logout' id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</a></li>
-            {% else %}
-            <li><a href='/login'> Sign In</a></li>
             {% endif %}
         </ul>
       </div><!--/.nav-collapse -->
     </div>
     </nav>
 	<section>
-				<p>{% with messages=get_flashed_messages() %}
+	    {% with messages=get_flashed_messages() %}
 				{% if messages %}
 				{% for message in messages %}
-				{{message}} 
-				{% endfor %}</p>
+				<div class= "container"> 
+					<div class="row">
+						<div class="col-md-12">
+							<p>{{message}} </p>
+						</div>
+					</div>	
+				</div>	
+		 {% endfor %}		
     <hr>
     {% endif %}
     {% endwith %}
