@@ -113,7 +113,7 @@ def new_book():
             flash('Notification sent.')
         return redirect(url_for('book', title=book.title))
     
-    return render_template('new_book.html', title='Add a New Book', form=form,
+    return render_template('new_book.html', title='Add a New Bookclub Book', form=form,
             quotes=quotes, length_chars=None)
 
 @app.route('/book/<title>/edit', methods=['GET','POST'])
@@ -253,7 +253,7 @@ def add_wishbook():
         flash('New book has been added!')
         return redirect(url_for('index'))
 #        return redirect(url_for('wishlist'))
-    return render_template('new_wishbook.html', title='Add a New Book',
+    return render_template('new_wishbook.html', title='Add a New Reading List Book',
             form=form, length_chars=None)
 
 @app.route('/wishlist/<title>/edit', methods=['GET', 'POST'])
