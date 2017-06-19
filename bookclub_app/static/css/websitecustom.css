@@ -19,7 +19,7 @@ h1 {
     font-size: 50px;
 	font-family:  'Indie Flower', cursive;
 	color: ghostwhite;
-	padding: 30px 0px 20px 0px;
+	padding: 20px 0px 20px 0px;
 }
 
 h2 {
@@ -97,11 +97,62 @@ a.button1:hover {
 
 /* Navigation & Branding */
 
+
+/* Mobile Nav */
+
+@media (max-width: 768px) {
+    #NavBar{
+		position: absolute;
+        width: 70%;
+        z-index: 9999;
+		float: right;
+		margin-left: 25%;
+		background-color: #6e6565;
+		border-style: solid;
+		border-width: 2px;
+    }
+	
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover {
+	color: ghostwhite;
+	}
+
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+    color: ghostwhite;
+}
+
+	.navbar-static-top {
+    padding: 6px 0px 0px 6px;
+	}
+
+	.navbar-inverse .navbar-nav>li>a {	
+	padding-left: 10%;
+	}
+	
+	.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    border-left-style: none;
+	}	
+	
+	#valueprop {
+	padding-bottom: 20px;
+	padding-top: 0px;
+	margin-top: 0px;
+	}
+	
+	h1 {
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+}
+	
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #6e6565;
+}
+
 #navbar {
 	float: right;
 }   
 
-
+/* Main Nav */ 
 
 .nav>li>a { 
 	padding: 25px 30px 25px 30px;
@@ -128,9 +179,12 @@ a.button1:hover {
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
     background-color: rgba(72, 69, 69, 0.3);
-	border-color: transparent;
 }	
 	
+	
+	.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    border-left-style: solid;
+}
 	
  .navbar-static-top {
     padding: 10px 0 10px 10px;
@@ -191,7 +245,7 @@ a.button1:hover {
 #valueprop {
 	text-align: center;	
 	padding-bottom: 40px;
-	padding-top: 40px;
+
 }
 
 a.button {
