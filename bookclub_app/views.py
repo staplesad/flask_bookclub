@@ -8,21 +8,17 @@ from .models import User, Book, Review, Quote, WishBook, check_password
 from .emails import new_book_notification, upcoming_notification
 ###LOGIN AND HOME ###################################
 @app.route('/')
-def first_page():
-    user = g.user
-    if user is not None:
-        redirect(url_for('index'))
-    return render_template('signed_out_index.html', title='Home')
-
 @app.route('/index')
-@login_required
 def index():
     user = g.user
-    books = Book.query.order_by(desc(Book.due_date)).all()
-    wbooks = WishBook.query.filter_by(user=current_user).all()
-    quote = choose_quote()
-    return render_template('index.html', title='Home', user=user,
-            books=books, wbooks=wbooks, quote=quote)
+    if g.user is not None and g.user.is_authenticated:
+        books = Book.query.order_by(desc(Book.due_date)).all()
+        wbooks = WishBook.query.filter_by(user=current_user).all()
+        quote = choose_quote()
+        return render_template('index.html', title='Home', user=user,
+                books=books, wbooks=wbooks, quote=quote)
+    return render_template('signed_out_index.html', title='Home')
+
 
 @lm.user_loader
 def load_user(id):
@@ -57,7 +53,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('first_page'))
+    return redirect(url_for('index'))
 
 @app.route('/add_book')
 @login_required
