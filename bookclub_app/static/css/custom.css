@@ -22,20 +22,18 @@ h1 {
 html, body {
     position: relative;
     min-height: 100%;
-	margin-left: 2%;
-	margin-right: 2%;
 }
 
 
 .navbar-inverse {
-    background-color: ghostwhite;
+    background-color: white;
 	border-bottom-style: none;
 }
 
 .navbar-inverse .navbar-toggle {
     border-color: #222;
     border-width: 1px;
-	background-color: lavender;
+	background-color: ghostwhite;
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
@@ -121,14 +119,15 @@ border-radius: 0px;
 }
 
 #dashedborder {
-	border-bottom-style: dashed;
-    border-width: thin;	
+	border-bottom: #eee;
+    border-bottom-style: solid;
+    border-bottom-width: medium;	
 }    
 	
 
 
 .dropdown-menu>li>a:hover {
-    background-color:  #c5c5d2;
+    background-color:  lavender;
 }
 
 
@@ -137,22 +136,20 @@ border-radius: 0px;
 }   
 
 	.nav>li>a {
-    padding: 22px 60px 22px 60px;
+    padding: 25px 60px 22px 60px;
 	font-size: 18px;
  }	
 	
 	
 @media screen and (max-width: 992px) {
 	.nav>li>a {
-    padding: 22px 30px 22px 30px;
+    padding: 26px 30px 26px 30px;
 	font-size: 18px;
   }	
 }
 	
 .navbar-inverse .navbar-nav>li>a {
     color: #222;
-	background-color: lavender;
-    margin: 5px;
 }
 
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
@@ -161,24 +158,22 @@ border-radius: 0px;
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    background-color: #c5c5d2;
+    background-color: lavender;
 	color: #222;
-	margin: 5px;
 }	
 	
 	
  .navbar-static-top {
-	margin: 6px 0 30px 6px;
-    padding-bottom: 6px;
-    border-bottom: black;
-    border-bottom-style: dashed;
-    border-bottom-width: thin;
+	padding: 6px 6px 6px 6px;
+    border-bottom: #eee;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
 }
 
 .navbar-inverse a.navbar-brand {
 	font-size: 30px;
 	font-family: 'Indie Flower', cursive;
-	padding-bottom: 50px;
+	padding-bottom: 52px;
 	color: #333;
 }
 
@@ -202,9 +197,6 @@ td {
 
 td#viewbook {
 	text-align: center;
-	border-left-style: solid;
-	border-left-width: thick;
-    border-left-color: ghostwhite;
 }
 
 @media screen and (max-width: 768px) {
@@ -263,7 +255,7 @@ td:empty {
 /*Footer*/
 
 footer {
-	background-color: ghostwhite;
+	background-color: white;
 	text-align: center;
 	padding-top: 30px;
 	margin-top: 40px;
@@ -272,8 +264,9 @@ footer {
 	position: absolute;
 	overflow: hidden;
     bottom: 0;
-	border-top-style: dashed;
-    border-top-width: thin;
+	border-top: #eee;
+    border-top-style: solid;
+    border-top-width: medium;
 }
 
 .wrap {
@@ -307,6 +300,13 @@ footer {
 }
 
 @media (max-width: 768px) {
+	
+	section {
+			margin-left: 2%;
+			margin-right: 2%;
+	}
+	
+	
     #NavBar{
 		position: absolute;
         width: 75%;
