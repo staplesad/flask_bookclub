@@ -19,7 +19,7 @@ h1 {
     font-size: 50px;
 	font-family:  'Indie Flower', cursive;
 	color: ghostwhite;
-	padding: 20px 0px 20px 0px;
+	padding: 20px 0px 30px 0px;
 }
 
 h2 {
@@ -140,6 +140,7 @@ a.button1:hover {
 	
 	h1 {
 		padding-top: 0px;
+		padding-bottom: 20px;
 		margin-top: 0px;
 	}
 }
@@ -244,7 +245,8 @@ a.button1:hover {
 
 #valueprop {
 	text-align: center;	
-	padding-bottom: 40px;
+	padding-top: 30px;
+	padding-bottom: 50px;
 
 }
 
