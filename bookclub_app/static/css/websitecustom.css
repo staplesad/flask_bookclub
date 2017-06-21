@@ -1,13 +1,10 @@
 body { 
 	font-size: 16px;
 	font-family: 'Josefin Sans', sans-serif;
-	background-image: url("/static/images/bookclubshelf.png");
-	background-blend-mode: color;
+	background-image: url("/static/images/bookclubshelf.jpg");
 	background-position: top right;
-	background-color: #6e6565;
 	padding:10px;
 	padding-bottom:80px; 
-	outline: none;
 }
 
 p {
@@ -26,7 +23,6 @@ h1 {
 h2 {
 	font-size: 25px;
 	color: ghostwhite;
-	padding_bottom: 
 }
 html {
     position: relative;
@@ -109,6 +105,7 @@ a.button1:hover {
 		float: right;
 		margin-left: 25%;
 		background-color: #6e6565;
+		border-color: ghostwhite;
 		border-style: solid;
 		border-width: 2px;
     }
@@ -184,9 +181,6 @@ a.button1:hover {
 }	
 	
 	
-	.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    border-left-style: solid;
-}
 	
  .navbar-static-top {
     padding: 10px 0 10px 10px;
