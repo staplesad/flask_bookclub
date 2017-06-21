@@ -7,6 +7,7 @@ body {
 	background-color: #6e6565;
 	padding:10px;
 	padding-bottom:80px; 
+	outline: none;
 }
 
 p {
@@ -254,6 +255,8 @@ a.button {
 	text-align: center;
 	padding: 20px;
 }
+
+
 
 /* Footer */
 

@@ -7,7 +7,7 @@ function updateCount(limit){
   $('#characters').text(output);
 }
 
-$(function(){
+$(function(){  // confirmation on sign out
     $('a#logout').click(function(){
         if(confirm('Are you sure you want to sign out?')) {
             return true;
@@ -17,4 +17,10 @@ $(function(){
     });
 });
 
+
+$(document).click(function(e) {  // lets user click outside the mobile menu to close it
+    if (!$(e.target).is('a')) {
+        $('.collapse').collapse('hide');        
+    }
+});
 
