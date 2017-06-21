@@ -291,11 +291,9 @@ footer {
 }
 
 @media screen and (min-width: 767px) {
-	.row#login {
-		margin-left: 30%;
-	}
+	
 	input#username, input#password {
-		width: 60%;
+		width: 100%;
 	}
 }
 
@@ -306,6 +304,8 @@ footer {
 			margin-right: 2%;
 	}
 	
+	
+/* Mobile NavBar */	
 	
     #NavBar{
 		position: absolute;
