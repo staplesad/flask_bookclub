@@ -1,10 +1,8 @@
 body { 
 	font-size: 16px;
 	font-family: 'Josefin Sans', sans-serif;
-	background-image: url("/static/images/bookclubshelf.png");
-	background-blend-mode: color;
+	background-image: url("/static/images/bookclubshelf.jpg");
 	background-position: top right;
-	background-color: #6e6565;
 	padding:10px;
 	padding-bottom:80px; 
 }
@@ -14,18 +12,22 @@ p {
 	color: lavender;
 }
 
+html, body {
+    position: relative;
+    min-height: 100%;
+}
 
 h1 {
     font-size: 50px;
 	font-family:  'Indie Flower', cursive;
 	color: ghostwhite;
-	padding: 30px 0px 20px 0px;
+	padding: 20px 0px;
 }
 
 h2 {
 	font-size: 25px;
 	color: ghostwhite;
-	padding_bottom: 
+	padding-top: 10px;
 }
 html {
     position: relative;
@@ -76,7 +78,7 @@ html {
 a.button1  {
 	display: block;
 	text-align: center;
-    background-color: rgba(72, 69, 69, 0.3);
+    background-color: rgba(72, 69, 69, 0.37);
 	color: ghostwhite;
 	font-size: 20px;
 	padding: 10px;
@@ -87,6 +89,12 @@ a.button1  {
 	border-radius: 8px;
 }
 
+#smallbutton {
+	font-size:18px;
+	text-align: center;
+	display: inline-block;
+	margin-top: 10px;
+}
 	
 	
 a.button1:hover {
@@ -97,11 +105,84 @@ a.button1:hover {
 
 /* Navigation & Branding */
 
+
+@media screen and (max-width: 767px) {
+#createanaccount {
+	display: block;
+	text-align: center;
+    background-color: rgba(72, 69, 69, 0.37);
+	color: ghostwhite;
+	font-size: 18px;
+	padding: 18px;
+	margin: 20px;
+	border-style: solid;
+    border-width: thin;
+	border-color: ghostwhite;
+	border-radius: 8px;
+  }
+ 
+ #createanaccount:hover {
+	text-decoration: none;
+	background-color: rgba(188, 122, 0, 0.67);
+  }
+}
+
+/* Mobile Nav */
+
+@media (max-width: 767px) {
+    #NavBar{
+		position: absolute;
+        width: 65%;
+        z-index: 9999;
+		float: right;
+		margin-left: 25%;
+		background-color: #6e6565;
+		border-color: ghostwhite;
+		border-style: solid;
+		border-width: 2px;
+		border-radius: 8px;
+    }
+	
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover {
+	color: ghostwhite;
+	}
+
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+    color: ghostwhite;
+}
+
+	.navbar-static-top {
+    padding: 6px 0px 0px 6px;
+	}
+
+	.navbar-inverse .navbar-nav>li>a {	
+	padding-left: 10%;
+	}
+	
+	
+	
+	#valueprop {
+	padding-bottom: 20px;
+	padding-top: 0px;
+	margin-top: 0px;
+	}
+	
+	h1 {
+		padding-top: 0px;
+		padding-bottom: 20px;
+		margin-top: 0px;
+	}
+}
+	
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #6e6565;
+}
+
 #navbar {
 	float: right;
 }   
 
-
+/* Main Nav */ 
 
 .nav>li>a { 
 	padding: 25px 30px 25px 30px;
@@ -124,12 +205,18 @@ a.button1:hover {
 .navbar-inverse .navbar-nav>li>a {
     color: ghostwhite;
 	border-color: transparent;
+	border-style: solid;
+    border-width: thin;
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    background-color: rgba(72, 69, 69, 0.3);
-	border-color: transparent;
+    background-color: rgba(188, 122, 0, 0.67);
+	border-style: solid;
+    border-color: ghostwhite;
+    border-width: thin;
+	border-radius: 8px;
 }	
+	
 	
 	
  .navbar-static-top {
@@ -190,13 +277,45 @@ a.button1:hover {
 
 #valueprop {
 	text-align: center;	
-	padding-bottom: 40px;
-	padding-top: 40px;
+	padding-top: 30px;
+	padding-bottom: 50px;
+
 }
 
 a.button {
 	text-align: center;
 	padding: 20px;
+}
+
+/* About */
+
+.box {
+	background-color: rgba(85, 85, 85, 0.48);
+	min-height: 333px;
+	color: ghostwhite;
+	margin-top: 50px;
+	padding: 1px 20px;
+	border-style: solid;
+	border-color: ghostwhite;
+	border-radius: 8px;
+	text-align: center;
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+	.box {
+		min-height: 426px;
+	}
+}	
+
+ul.aboutlist {
+	list-style-type: none;
+	text-align: left;
+	padding: 22px;
+	font-size: 18px;
+}
+
+li.aboutlist {
+	padding: 10px;
 }
 
 /* Footer */
@@ -213,4 +332,11 @@ footer {
     bottom: 0;
 }
 
-
+.wrap {
+    height: auto;
+    margin: 0 auto -60px; /* footer height + space */
+    min-height: 100%;
+    padding: 0 0 60px; /* footer height + space */
+    box-sizing: border-box;
+    overflow: auto;
+}

@@ -22,7 +22,11 @@ def index():
 @app.route('/about')
 def about():
     return app.send_static_file('about.html')
-
+	
+@app.route('/sign_up')
+def sign_up():
+    return render_template('sign_up.html', title='Sign Up')	
+	
 @lm.user_loader
 def load_user(id):
     return User.query.get(int(id))

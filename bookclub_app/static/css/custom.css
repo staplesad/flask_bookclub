@@ -4,6 +4,8 @@ body {
 	font-size: 16px;
 	font-family: 'Josefin Sans', sans-serif;
 	background-color: ghostwhite;
+	position: relative;
+	
 }
 
 p {
@@ -18,20 +20,21 @@ h1 {
 	font-family:  'Indie Flower', cursive;
 	} 
 
-html, body {
+html {
     position: relative;
     min-height: 100%;
 }
 
 
 .navbar-inverse {
-    background-color: ghostwhite;
-	border-bottom-style: dashed;
+    background-color: white;
+	border-bottom-style: none;
 }
 
 .navbar-inverse .navbar-toggle {
     border-color: #222;
     border-width: 1px;
+	background-color: ghostwhite;
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
@@ -71,7 +74,7 @@ input.formbutton {
 
 
 .button1  {
-	background-color: lavender; 
+	background-color: lavender;
     padding: 6px;
 	font-size: 16px;
 	color: #333;
@@ -93,11 +96,11 @@ input.formbutton {
 	
 a.button1:hover, a.button2:hover, input[type="submit"]:hover {
 	text-decoration: none;
-	background-color:  #c5c5d2;
+	background-color: #c5c5d2; 
 	border-style: solid;
     border-width: thin;
 	border-color: grey;
-	color: #337ab7;
+	color: #333;
 }
 	
 
@@ -117,14 +120,15 @@ border-radius: 0px;
 }
 
 #dashedborder {
-	border-bottom-style: dashed;
-    border-width: thin;	
+	border-bottom: #eee;
+    border-bottom-style: solid;
+    border-bottom-width: medium;	
 }    
 	
 
 
 .dropdown-menu>li>a:hover {
-    background-color: lavender;
+    background-color:  lavender;
 }
 
 
@@ -133,14 +137,14 @@ border-radius: 0px;
 }   
 
 	.nav>li>a {
-    padding: 25px 60px 25px 60px;
+    padding: 25px 60px 22px 60px;
 	font-size: 18px;
  }	
 	
 	
 @media screen and (max-width: 992px) {
 	.nav>li>a {
-    padding: 23px 30px 25px 30px;
+    padding: 26px 30px 26px 30px;
 	font-size: 18px;
   }	
 }
@@ -157,19 +161,21 @@ border-radius: 0px;
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
     background-color: lavender;
 	color: #222;
-	border-color: transparent;
 }	
 	
 	
  .navbar-static-top {
-    padding: 6px 0 6px 6px;
+	padding: 6px 6px 6px 6px;
+    border-bottom: #eee;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
 }
 
 .navbar-inverse a.navbar-brand {
-	font-size: 30px;
+	font-size: 27px;
 	font-family: 'Indie Flower', cursive;
-	padding-bottom: 50px;
-	color: #222;
+	padding-bottom: 52px;
+	color: #333;
 }
 
 .navbar-brand {
@@ -192,9 +198,6 @@ td {
 
 td#viewbook {
 	text-align: center;
-	border-left-style: solid;
-	border-left-width: thick;
-    border-left-color: ghostwhite;
 }
 
 @media screen and (max-width: 768px) {
@@ -253,7 +256,7 @@ td:empty {
 /*Footer*/
 
 footer {
-	background-color: ghostwhite;
+	background-color: white;
 	text-align: center;
 	padding-top: 30px;
 	margin-top: 40px;
@@ -262,15 +265,16 @@ footer {
 	position: absolute;
 	overflow: hidden;
     bottom: 0;
-	border-top-style: dashed;
-    border-top-width: thin;
+	border-top: #eee;
+    border-top-style: solid;
+    border-top-width: medium;
 }
 
 .wrap {
     height: auto;
-    margin: 0 auto -80px; /* footer height + space */
+    margin: 0 auto -100px; /* footer height + space */
     min-height: 100%;
-    padding: 0 0 80px; /* footer height + space */
+    padding: 0 0 100px; /* footer height + space */
     box-sizing: border-box;
     overflow: auto;
 }
@@ -288,12 +292,58 @@ footer {
 }
 
 @media screen and (min-width: 767px) {
-	.row#login {
-		margin-left: 30%;
-	}
+	
 	input#username, input#password {
-		width: 60%;
+		width: 100%;
 	}
+}
+
+@media (max-width: 768px) {
+	
+	section {
+			margin-left: 2%;
+			margin-right: 2%;
+	}
+	
+	
+/* Mobile NavBar */	
+	
+    #NavBar{
+		position: absolute;
+        width: 69%;
+        z-index: 9999;
+		float: right;
+		margin-left: 20%;
+		border-style: solid;
+		border-width: thin;
+		background-color: lavender;
+    }
+	
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover {
+    background-color: #c5c5d2;
+	color: #222;
+	}
+
+	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+    color: #222;
+	padding: 14px;
+}
+
+	.navbar-static-top {
+    padding: 6px 0 0px 6px;
+	}
+
+	.navbar-inverse .navbar-nav>li>a {
+	border-left-style: none;	
+	}
+	
+	.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    border-left-style: none;
+	}	
+}
+	
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #ddd;
 }
 
 
