@@ -5,6 +5,7 @@ body {
   background-color: grey;
   background-blend-mode: multiply;
   background-position: top right;
+/*  background-image: url("/static/images/Bookclubshelf.jpg");*/
 	padding:10px;
 	padding-bottom:80px; 
 }
@@ -81,7 +82,7 @@ html {
 a.button1  {
 	display: block;
 	text-align: center;
-    background-color: rgba(72, 69, 69, 0.37);
+    background-color: rgba(72, 69, 69, 0.56);
 	color: ghostwhite;
 	font-size: 20px;
 	padding: 10px;
@@ -213,7 +214,6 @@ a.button1:hover {
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    background-color: rgba(188, 122, 0, 0.67);
 	border-style: solid;
     border-color: ghostwhite;
     border-width: thin;
@@ -298,10 +298,18 @@ a.button {
 	margin-top: 50px;
 	padding: 1px 20px;
 	border-style: solid;
+	border-width: thin;
 	border-color: ghostwhite;
 	border-radius: 8px;
 	text-align: center;
 }
+
+@media screen and (max-width: 991px) {
+	.box {
+	margin-top: 25px;
+  } 
+}
+
 
 @media only screen and (max-width: 1199px) and (min-width: 992px) {
 	.box {
