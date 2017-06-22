@@ -1,10 +1,9 @@
 body { 
 	font-size: 16px;
 	font-family: 'Josefin Sans', sans-serif;
-	background-image: url("/static/images/BookclubImage2smaller.jpeg");
+	background-image: url("/static/images/typewriter4.jpg");
   background-color: grey;
-  background-blend-mode: multiply;
-  background-position: top right;
+  background-position: center left;
 /*  background-image: url("/static/images/Bookclubshelf.jpg");*/
 	padding:10px;
 	padding-bottom:80px; 
