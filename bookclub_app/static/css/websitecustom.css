@@ -12,17 +12,22 @@ p {
 	color: lavender;
 }
 
+html, body {
+    position: relative;
+    min-height: 100%;
+}
 
 h1 {
     font-size: 50px;
 	font-family:  'Indie Flower', cursive;
 	color: ghostwhite;
-	padding: 20px 0px 30px 0px;
+	padding: 20px 0px;
 }
 
 h2 {
 	font-size: 25px;
 	color: ghostwhite;
+	padding-top: 10px;
 }
 html {
     position: relative;
@@ -73,7 +78,7 @@ html {
 a.button1  {
 	display: block;
 	text-align: center;
-    background-color: rgba(72, 69, 69, 0.3);
+    background-color: rgba(72, 69, 69, 0.37);
 	color: ghostwhite;
 	font-size: 20px;
 	padding: 10px;
@@ -84,6 +89,12 @@ a.button1  {
 	border-radius: 8px;
 }
 
+#smallbutton {
+	font-size:18px;
+	text-align: center;
+	display: inline-block;
+	margin-top: 10px;
+}
 	
 	
 a.button1:hover {
@@ -95,12 +106,33 @@ a.button1:hover {
 /* Navigation & Branding */
 
 
+@media screen and (max-width: 767px) {
+#createanaccount {
+	display: block;
+	text-align: center;
+    background-color: rgba(72, 69, 69, 0.37);
+	color: ghostwhite;
+	font-size: 18px;
+	padding: 18px;
+	margin: 20px;
+	border-style: solid;
+    border-width: thin;
+	border-color: ghostwhite;
+	border-radius: 8px;
+  }
+ 
+ #createanaccount:hover {
+	text-decoration: none;
+	background-color: rgba(188, 122, 0, 0.67);
+  }
+}
+
 /* Mobile Nav */
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #NavBar{
 		position: absolute;
-        width: 70%;
+        width: 65%;
         z-index: 9999;
 		float: right;
 		margin-left: 25%;
@@ -108,6 +140,7 @@ a.button1:hover {
 		border-color: ghostwhite;
 		border-style: solid;
 		border-width: 2px;
+		border-radius: 8px;
     }
 	
 	.navbar-inverse .navbar-nav .open .dropdown-menu>li>a:hover {
@@ -126,9 +159,7 @@ a.button1:hover {
 	padding-left: 10%;
 	}
 	
-	.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    border-left-style: none;
-	}	
+	
 	
 	#valueprop {
 	padding-bottom: 20px;
@@ -174,10 +205,16 @@ a.button1:hover {
 .navbar-inverse .navbar-nav>li>a {
     color: ghostwhite;
 	border-color: transparent;
+	border-style: solid;
+    border-width: thin;
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    background-color: rgba(72, 69, 69, 0.3);
+    background-color: rgba(188, 122, 0, 0.67);
+	border-style: solid;
+    border-color: ghostwhite;
+    border-width: thin;
+	border-radius: 8px;
 }	
 	
 	
@@ -250,7 +287,36 @@ a.button {
 	padding: 20px;
 }
 
+/* About */
 
+.box {
+	background-color: rgba(85, 85, 85, 0.48);
+	min-height: 333px;
+	color: ghostwhite;
+	margin-top: 50px;
+	padding: 1px 20px;
+	border-style: solid;
+	border-color: ghostwhite;
+	border-radius: 8px;
+	text-align: center;
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+	.box {
+		min-height: 426px;
+	}
+}	
+
+ul.aboutlist {
+	list-style-type: none;
+	text-align: left;
+	padding: 22px;
+	font-size: 18px;
+}
+
+li.aboutlist {
+	padding: 10px;
+}
 
 /* Footer */
 
@@ -266,4 +332,11 @@ footer {
     bottom: 0;
 }
 
-
+.wrap {
+    height: auto;
+    margin: 0 auto -60px; /* footer height + space */
+    min-height: 100%;
+    padding: 0 0 60px; /* footer height + space */
+    box-sizing: border-box;
+    overflow: auto;
+}

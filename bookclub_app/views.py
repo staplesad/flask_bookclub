@@ -19,7 +19,14 @@ def index():
                 books=books, wbooks=wbooks, quote=quote)
     return render_template('signed_out_index.html', title='Home')
 
-
+@app.route('/about')
+def about():
+    return render_template('about.html', title='About')
+	
+@app.route('/sign_up')
+def sign_up():
+    return render_template('sign_up.html', title='Sign Up')	
+	
 @lm.user_loader
 def load_user(id):
     return User.query.get(int(id))

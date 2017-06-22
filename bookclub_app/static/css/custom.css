@@ -4,6 +4,7 @@ body {
 	font-size: 16px;
 	font-family: 'Josefin Sans', sans-serif;
 	background-color: ghostwhite;
+	position: relative;
 	
 }
 
@@ -19,7 +20,7 @@ h1 {
 	font-family:  'Indie Flower', cursive;
 	} 
 
-html, body {
+html {
     position: relative;
     min-height: 100%;
 }
@@ -171,7 +172,7 @@ border-radius: 0px;
 }
 
 .navbar-inverse a.navbar-brand {
-	font-size: 30px;
+	font-size: 27px;
 	font-family: 'Indie Flower', cursive;
 	padding-bottom: 52px;
 	color: #333;
@@ -271,9 +272,9 @@ footer {
 
 .wrap {
     height: auto;
-    margin: 0 auto -80px; /* footer height + space */
+    margin: 0 auto -100px; /* footer height + space */
     min-height: 100%;
-    padding: 0 0 80px; /* footer height + space */
+    padding: 0 0 100px; /* footer height + space */
     box-sizing: border-box;
     overflow: auto;
 }
@@ -309,7 +310,7 @@ footer {
 	
     #NavBar{
 		position: absolute;
-        width: 75%;
+        width: 69%;
         z-index: 9999;
 		float: right;
 		margin-left: 20%;
