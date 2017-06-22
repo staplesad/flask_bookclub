@@ -1,11 +1,15 @@
 body { 
 	font-size: 16px;
 	font-family: 'Josefin Sans', sans-serif;
-	background-image: url("/static/images/Bookclubshelf.jpg");
-    background-position: top right;
+	background-image: url("/static/images/BookclubImage2smaller.jpeg");
+  background-color: grey;
+  background-blend-mode: multiply;
+  background-position: top right;
+/*  background-image: url("/static/images/Bookclubshelf.jpg");*/
 	padding:10px;
 	padding-bottom:80px; 
 }
+
 
 p {
 	font-size: 16px;
@@ -252,15 +256,14 @@ a.button1:hover {
 /* Main Home*/
 
 
-@media screen and (min-width: 992px) {
-	
-#floatright {
+@media screen and (min-width: 992px) {	
+  #floatright {
     float: right;
-}
+    }
 
-#floatleft {
-	float: left;
-}
+  #floatleft {
+    float: left;
+  }
 
 }
 
