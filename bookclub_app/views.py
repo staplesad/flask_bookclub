@@ -17,11 +17,11 @@ def index():
         quote = choose_quote()
         return render_template('index.html', title='Home', user=user,
                 books=books, wbooks=wbooks, quote=quote)
-    return render_template('signed_out_index.html', title='Home')
+    return app.send_static_file('index_signedout.html')
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title='About')
+    return app.send_static_file('about.html')
 	
 @app.route('/sign_up')
 def sign_up():

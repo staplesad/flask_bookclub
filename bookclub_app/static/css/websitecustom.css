@@ -1,8 +1,10 @@
 body { 
 	font-size: 16px;
 	font-family: 'Josefin Sans', sans-serif;
-	background-image: url("/static/images/bookclubshelf.jpg");
-	background-position: top right;
+	background-image: url("/static/images/Bookclubshelf.png");
+  background-color: grey;
+  background-blend-mode: multiply;
+  background-position: top right;
 	padding:10px;
 	padding-bottom:80px; 
 }
