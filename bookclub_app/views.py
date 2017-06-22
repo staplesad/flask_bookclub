@@ -17,8 +17,11 @@ def index():
         quote = choose_quote()
         return render_template('index.html', title='Home', user=user,
                 books=books, wbooks=wbooks, quote=quote)
-    return render_template('signed_out_index.html', title='Home')
+    return app.send_static_file('index_signedout.html')
 
+@app.route('/about')
+def about():
+    return app.send_static_file('about.html')
 
 @lm.user_loader
 def load_user(id):
