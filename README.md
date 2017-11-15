@@ -5,6 +5,6 @@ Basic web app which allows users to post books and reviews thereof for a bookclu
 
 The code for the flask app is included but some pieces of code used to host my version of this app on heroku are not, such as the procfile.
 
-[app hosted on heroku](https://www.arcane-eyrie-39035.herokuapp.com)
+[app hosted on heroku](http://www.arcane-eyrie-39035.herokuapp.com)
 
 
