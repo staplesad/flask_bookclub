@@ -1,4 +1,5 @@
 from bookclub_app import db
+from sqlalchemy.dialects.postgresql import ARRAY
 from werkzeug.security import generate_password_hash, check_password_hash
 
 ##PASSWORD FUNCTIONS##
@@ -17,6 +18,8 @@ class User(db.Model):
     books = db.relationship('Book', backref='author', lazy='dynamic')
     reviews = db.relationship('Review', backref='author', lazy='dynamic')
     wishbook = db.relationship('WishBook', backref='user', lazy='dynamic')
+    poll = db.relationship('Poll', backref='user', lazy='dynamic')
+    pollresult = db.relationship('PollResult', backref='user', lazy='dynamic')
 
     def __init__(self, name, email, password):
         self.nickname = name
@@ -78,3 +81,21 @@ class WishBook(db.Model):
 
     def __repr__(self):
         return '<Book %r>' % self.title
+class Poll(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    date=db.Column(db.Date)
+    closed=db.Column(db.Boolean, default=False)
+    info=db.Column(db.String(2000))
+    options=db.Column(ARRAY(String))
+    user_id=db.Column(db.Integer, db.ForeignKey('user.id'))
+    
+    pollresult = db.relationship('PollResult', backref='poll', lazy='dynamic')
+
+    def __repr__(self):
+        return '<Poll by %r at %r: %r>' % self.user_id, self.date, self.options
+
+class PollResult(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    user_choice=db.Column(db.String(255))
+    user_id=db.Column(db.Integer, db.ForeignKey('user.id'))
+    poll_id=db.Column(db.Integer, db.ForeignKey('poll.id'))
