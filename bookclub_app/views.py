@@ -303,7 +303,21 @@ def wbook_delete(title):
 @app.route('/poll/create', methods=['GET', 'POST'])
 @login_required
 def create_poll():
-    return render_template('create_poll.html', title='Create New Poll')
+    form=PollForm()
+    if form.validate_on_submit():
+        optionList = []
+        for value in form.optionList:
+            optionList.append(value.data)
+            print value
+        poll = Poll(options=optionList,
+                info=form.info.data,
+                user=current_user)
+        db.session.add(poll)
+        db.session.commit()
+        flash('New poll has been created!')
+        return redirect(url_for('poll'))
+    return render_template('create_poll.html', title='Create New Poll',
+            form=form, length_chars=None)
 
 @app.route('/poll', methods=['GET'])
 @login_required

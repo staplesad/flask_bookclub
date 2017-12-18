@@ -86,7 +86,7 @@ class Poll(db.Model):
     date=db.Column(db.Date)
     closed=db.Column(db.Boolean, default=False)
     info=db.Column(db.String(2000))
-    options=db.Column(ARRAY(String))
+    options=db.Column(ARRAY(db.String))
     user_id=db.Column(db.Integer, db.ForeignKey('user.id'))
     
     pollresult = db.relationship('PollResult', backref='poll', lazy='dynamic')
