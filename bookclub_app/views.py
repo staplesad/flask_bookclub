@@ -3,8 +3,8 @@ from flask_login import login_user, logout_user, current_user, login_required
 from bookclub_app import app, db, lm
 from sqlalchemy import desc
 from random import randint
-from .forms import LoginForm, BookForm, ReviewForm, WishBookForm
-from .models import User, Book, Review, Quote, WishBook, check_password
+from .forms import LoginForm, BookForm, ReviewForm, WishBookForm, PollForm
+from .models import User, Book, Review, Quote, WishBook, Poll, PollResult, check_password
 from .emails import new_book_notification, upcoming_notification
 ###LOGIN AND HOME ###################################
 @app.route('/')
@@ -296,6 +296,26 @@ def wbook_delete(title):
     flash('%s has been deleted.' % title)
     return redirect(url_for('index'))
     
+
+########## Poll ##########################
+##########################################
+
+@app.route('/poll/create', methods=['GET', 'POST'])
+@login_required
+def create_poll():
+    return render_template('create_poll.html', title='Create New Poll')
+
+@app.route('/poll', methods=['GET'])
+@login_required
+def list_polls():
+    return render_template('polls.html', title='Polls')
+
+@app.route('/poll/<id>/display', methods=['GET'])
+@login_required
+def display_poll():
+    return render_template('display_poll.html', title='Display Poll')
+
+
 ####### Quote functions ##################
 def choose_quote():
     total_quotes = Quote.query.count()
