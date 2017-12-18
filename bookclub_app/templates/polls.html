@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-12">
+			<h1>Poll List</h1>
+		</div>
+	</div>
+</div>	
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-12">
+		    <br>
+				<table>
+				  {% for poll in polls %}
+				  <tr>
+					<td><a href="/poll/{{poll.id}}" style="color: #333;"><i class="fa fa-calendar" aria-hidden="true"></i>  {{poll.date}}</a></td>
+				  </tr>
+				  {% endfor %}
+				</table>
+		</div>
+	    <div class="col-md-12">
+			<br>
+			<br>
+      <h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i> {{quote}}  <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+	        <br>
+			<br>
+		</div>
+	</div>
+</div>	
+{% endblock %}

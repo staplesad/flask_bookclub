@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-4">
+			<h1>{{title}}</h1>
+		</div>
+        <div class="col-md-4" id='leavebook' style= 'padding-right: 8%'>
+			<input type='submit' form="addpollform" value='Submit Poll' style='float: right; width: 88%;' class='formbutton'>
+        </div>  	
+	</div>
+</div>	
+
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-8">
+			<form id="addbookform" action="" method="post" name="post">
+			  {{ form.hidden_tag() }}
+        <p>What books do you want to suggest?:<br>
+        {% for option in form.optionsList %}
+        {{option}}<br>
+        {% endfor %}</p>
+			  <p>Further Info:<br>
+        {{form.info (cols=80, rows=10)}}<br>
+        <span id="characters">
+          {% if length_chars is not none %}
+          {{length_chars}}
+          {% else %}0{% endif %}</span>/550<br>
+			  {% for error in form.info.errors %}
+			  <span style='color: red;'>[{{error}}]</span>
+			  {% endfor %}</p>
+			</form>
+		</div>
+		<div class="col-md-4">
+        {% for quote in quotes %} 
+		    <br>
+      <h2 class='quote'><i class="fa fa-quote-left" aria-hidden="true"></i>{{quote}} <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
+      {% endfor %}
+		</div>
+	</div>
+</div>	
+
+        
+{% endblock %}
