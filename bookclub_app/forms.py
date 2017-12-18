@@ -1,5 +1,6 @@
 from flask_wtf import Form
-from wtforms import DateField, StringField, PasswordField, BooleanField, IntegerField
+from wtforms import DateField, StringField, PasswordField, BooleanField,
+IntegerField, FieldList
 from wtforms.widgets import TextArea
 from wtforms.validators import DataRequired, Optional, Length
 
@@ -26,3 +27,9 @@ class WishBookForm(Form):
     author = StringField('author', validators=[Optional()])
     info = StringField('info', widget=TextArea(), validators=[Optional(),
         Length(max=550)])
+
+class PollForm(Form):
+    info = StringField('info', widget=TextArea(), validators=[Optional(),
+        Length(max=550)])
+    optionList = FieldList(StringField('option'), min_entries=2, max_entries=10)
+
