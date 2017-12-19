@@ -14,7 +14,10 @@
 				<table>
 				  {% for poll in polls %}
 				  <tr>
-					<td><a href="/poll/{{poll.id}}/display" style="color: #333;"><i class="fa fa-calendar" aria-hidden="true"></i>  {{poll.date}}</a></td>
+            <td><a href="/poll/{{poll.id}}/display" style="color: #333;"><i class="fa fa-calendar" aria-hidden="true"></i>  {{poll.date}}</a></td>
+            {% if poll.info is not none %}
+            <td><a href="/poll/{{poll.id}}/display" style="color: #333;">{{poll.info}}</a></td>
+            {% endif %}
 				  </tr>
 				  {% endfor %}
 				</table>
