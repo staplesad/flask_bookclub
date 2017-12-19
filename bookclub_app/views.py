@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from bookclub_app import app, db, lm
 from sqlalchemy import desc
 from random import randint
+from datetime import datetime
 from .forms import LoginForm, BookForm, ReviewForm, WishBookForm, PollForm
 from .models import User, Book, Review, Quote, WishBook, Poll, PollResult, check_password
 from .emails import new_book_notification, upcoming_notification
@@ -311,23 +312,47 @@ def create_poll():
             print value
         poll = Poll(options=optionList,
                 info=form.info.data,
-                user=current_user)
+                date=datetime.now().date(),
+                user_id=current_user.id)
+        print(current_user.id)
+        print(poll.user_id)
+        print(User.query.get(poll.user_id))
         db.session.add(poll)
         db.session.commit()
         flash('New poll has been created!')
-        return redirect(url_for('poll'))
+        return redirect(url_for('list_polls'))
     return render_template('create_poll.html', title='Create New Poll',
             form=form, length_chars=None)
 
 @app.route('/poll', methods=['GET'])
 @login_required
 def list_polls():
-    return render_template('polls.html', title='Polls')
+    polls = Poll.query.order_by(desc(Poll.date)).all()
+    quote = choose_quote()
+
+    return render_template('polls.html', title='Polls', quote=quote, polls=polls)
 
 @app.route('/poll/<id>/display', methods=['GET'])
 @login_required
-def display_poll():
-    return render_template('display_poll.html', title='Display Poll')
+def display_poll(id):
+    poll = Poll.query.get(id)
+    if poll == None:
+        flash('Poll not found.')
+        return redirect(url_for('list_polls'))
+    creator = User.query.get(poll.user_id)
+    optionNames = []
+    optionCounts = []
+    for option in poll.options:
+        print(option)
+        optionNames.append(option)
+        optionCounts.append(PollResult.query.filter_by(poll_id=id,
+            user_choice=option).count())
+
+    optionList = zip(optionNames, optionCounts)
+    quote = choose_quote()
+    return render_template('display_poll.html', title='Display Poll',
+            quote=quote, creator=creator.nickname, poll=poll,
+            optionList=optionList)
 
 
 ####### Quote functions ##################

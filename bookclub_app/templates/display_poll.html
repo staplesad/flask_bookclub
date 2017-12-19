@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="row"> 
 		<div class="col-md-8">
-      <h1>{{poll.date}] Poll</h1>
+      <h1>{{poll.date}} Poll</h1>
 		</div>
 	</div>
 </div>
@@ -17,15 +17,17 @@
         <td> Poll created by:</td> 
         <td>{{creator}}</td>
 			</tr>
-			{% if book.info is not none %}
+			{% if poll.info is not none %}
 			<tr>
 			<td colspan="2">{{poll.info}}</td>
 			</tr>
       {% endif %}
       {% for option in optionList %}
       <tr>
-        <td>{{option.name}}:</td>
-        <td>{{option.count}}</td>
+        <td>{{option[0]}}</td>
+        <td>{{option[1]}}</td>
+      </tr>
+      {% endfor %}
 			</table>
 			<hr>
 		</div>
