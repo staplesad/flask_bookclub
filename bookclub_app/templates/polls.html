@@ -18,6 +18,8 @@
             {% if poll.info is not none %}
             <td><a href="/poll/{{poll.id}}/display" style="color: #333;">{{poll.info}}</a></td>
             {% endif %}
+            <td><a href="/poll/{{poll.id}}/vote" style="padding: 3% 12%; font-size: 18px;"  class='button2'>Vote in Poll</a></td>
+            <td><a href="/poll/{{poll.id}}/delete" style="padding: 3% 12%; font-size: 18px;" onclick="return confirm('Are you sure you want to delete this poll?')" class='button2'>Delete Poll</a></td>
 				  </tr>
 				  {% endfor %}
 				</table>

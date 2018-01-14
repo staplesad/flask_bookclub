@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-8">
+      <h1>{{poll.date}} Poll</h1>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row"> 
+		<div class="col-md-12">
+			<table>
+			<tr>
+        <td> Poll created by:</td> 
+        <td>{{creator}}</td>
+			</tr>
+			{% if poll.info is not none %}
+			<tr>
+			<td colspan="2">{{poll.info}}</td>
+			</tr>
+      {% endif %}
+      <form action="/vote">
+        {% for option in optionList %}
+        <tr>
+          <td><input type="radio" value="{{option[0]}}"> {{option[0]}}</input></td>
+        </tr>
+        {% endfor %}
+        <tr> <input type='submit' style='float: right; width: 88%;' class='formbutton'></tr>
+      </form>
+			</table>
+			<hr>
+		</div>
+	</div>
+</div>	
+
+{% endblock %}
