@@ -26,7 +26,7 @@ class WishBookForm(Form):
     author = StringField('author', validators=[Optional()])
     info = StringField('info', widget=TextArea(), validators=[Optional(),
         Length(max=550)])
-
+    read = BooleanField('read', default=False)
 class PollForm(Form):
     info = StringField('info', widget=TextArea(), validators=[Optional(),
         Length(max=550)])

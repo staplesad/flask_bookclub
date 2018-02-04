@@ -50,8 +50,9 @@
           <td> {{wbook.title}}</td>
           <td> {{wbook.author}}</td>
           <td id="viewbook"> {{wbook.info}}</td>
-          <td id="viewbook"><a href='/wishlist/{{wbook.title}}/edit' style="padding: 3% 12%; font-size: 18px;" class='button2'>Edit Book</a></td>
-          <td id="viewbook"><a href='/wishlist/{{wbook.title}}/delete' style="padding: 3% 12%; font-size: 18px;" onclick="return confirm('Are you sure you want to delete {{wbook.title}}?')" class='button2'>Delete Book</a></td>
+          <td id="viewbook">Finished: <input type="checkbox" name="read" value="read" {%if wbook.read %} checked="checked" {%endif%} disabled='disabled'/></td>
+          <td id="viewbook"><a href="/wishlist/{{wbook.title}}/edit" style="padding: 3% 12%; font-size: 18px;" class='button2'>Edit Book</a></td>
+          <td id="viewbook"><a href="/wishlist/{{wbook.title}}/delete" style="padding: 3% 12%; font-size: 18px;" onclick="return confirm('Are you sure you want to delete {{wbook.title}}?')" class='button2'>Delete Book</a></td>
         </tr>
         {% endfor %}
         {% else%}

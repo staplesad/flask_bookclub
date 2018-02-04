@@ -250,7 +250,7 @@ def add_wishbook():
     form=WishBookForm()
     if form.validate_on_submit():
         book = WishBook(title=form.title.data, author=form.author.data,
-                info=form.info.data,
+                info=form.info.data, read=form.read.data,
                 user=current_user)
         db.session.add(book)
         db.session.commit()
@@ -271,6 +271,7 @@ def edit_wishbook(title):
     if form.validate_on_submit():
         book.title = form.title.data
         book.author = form.author.data
+        book.read = form.read.data
         book.info = form.info.data
         db.session.add(book)
         db.session.commit()
@@ -280,6 +281,7 @@ def edit_wishbook(title):
     else:
         form.title.data=book.title
         form.author.data=book.author
+        form.read.data=book.read
         form.info.data = book.info
     form_len = len(form.info.data)
     return render_template('new_wishbook.html', title='Edit Book: %s' %title,
