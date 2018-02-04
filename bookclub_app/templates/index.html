@@ -12,12 +12,14 @@
 		<div class="col-md-12">
 		    <br>
 				<table>
-				  {% for  book in books %}
+          {% for  book in books %}
 				  <tr>
-					<td><a href='/book/{{book.title}}' style="color: #333;"><i class="fa fa-calendar" aria-hidden="true"></i>  {{book.due_date}}</a></td>
-					<td><a href='/book/{{book.title}}' style="color: #333;">{{book.title}}</a></td>
-					<td id="viewbook"><a href='/book/{{book.title}}' class='button2' style="padding: 3% 12%; font-size: 18px;"> View Discussion </a></td>
-				  </tr>
+          <a href="/book/{{book.title}}">
+					<td><a href="/book/{{book.title}}" style="color: #333;"><i class="fa fa-calendar" aria-hidden="true"></i>  {{book.due_date}}</a></td>
+					<td><a href="/book/{{book.title}}" style="color: #333;">{{book.title}}</a></td>
+					<td id="viewbook"><a href="/book/{{book.title}}" class='button2' style="padding: 3% 12%; font-size: 18px;"> View Discussion </a></td>
+      </a>
+        </tr>
 				  {% endfor %}
 				</table>
 		</div>
