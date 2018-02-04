@@ -19,9 +19,13 @@
 			<form id="addpollform" action="" method="post" name="post">
 			  {{ form.hidden_tag() }}
         <p>What books do you want to suggest?:<br>
-        {% for option in form.optionList %}
-        {{option}}<br><br>
-        {% endfor %}</p>
+          <div data-toggle="options" id="poll-options">
+            {% for option in form.optionList %}
+            {{option}}<br><br>
+            {% endfor %}
+          </div>
+          <button type="button" data-toggle="options-add" data-target="#poll-options">Add another option</button>
+        </p>
 			  <p>Further Info:<br>
         {{form.info (cols=80, rows=10)}}<br>
         <span id="characters">
